@@ -1,0 +1,9 @@
+
+.dynamic_table.tabulator {
+    width:fit-content;
+    border: 1px solid #999;
+}
+
+.tabulator-cell{
+    min-width: 100px !important;
+}

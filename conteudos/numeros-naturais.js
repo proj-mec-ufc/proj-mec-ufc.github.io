@@ -23,7 +23,7 @@ iterativeSVG('assets/svg/contar.svg', '#contar', () => {
         });
     });
 });
-
+/* 
 // Graficos e tabelas
 //define some sample data
 var tabledata = [{
@@ -82,11 +82,6 @@ var table = new Tabulator("#cidades-table", {
     ],
 });
 
-//trigger an alert message when the row is clicked
-/* table.on("rowClick", function(e, row){ 
-   alert("Row " + row.getData().id + " Clicked!!!!");
-}); */
-
 // CHART --------------------------------------------------
 
 new Morris.Bar({
@@ -109,4 +104,4 @@ new Morris.Bar({
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
     labels: ['distancia']
-});
+}); */

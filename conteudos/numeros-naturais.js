@@ -1,5 +1,5 @@
 // Elementos iteretivos
-iterativeSVG('contar.svg', '#contar', () => {
+iterativeSVG('assets/svg/contar.svg', '#contar', () => {
     let groups = SVG('#contar').find('g')
     groups.each(element => {
         console.log(element.attr('id'));

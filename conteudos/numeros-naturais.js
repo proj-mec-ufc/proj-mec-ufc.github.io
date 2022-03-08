@@ -23,7 +23,7 @@ iterativeSVG('assets/svg/contar.svg', '#contar', () => {
         });
     });
 });
-/* 
+
 // Graficos e tabelas
 //define some sample data
 var tabledata = [{
@@ -97,4 +97,4 @@ new Morris.Bar({
     // Labels for the ykeys -- will be displayed when you hover over the
     // chart.
     labels: ['distancia']
-}); */
+});

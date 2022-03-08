@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Nunito Sans Regular';
+    src: url('../fonts/NunitoSans-Regular.woff2') format('woff2'),
+        url('../fonts/fonts/NunitoSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Nunito Sans Bold';
+    src: url('../fonts/NunitoSans-Bold.woff2') format('woff2'),
+        url('../fonts/NunitoSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito Sans Bold-Italic';
+    src: url('../fonts/NunitoSans-BoldItalic.woff2') format('woff2'),
+        url('../fonts/NunitoSans-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Nunito Sans Italic';
+    src: url('../fonts/NunitoSans-Italic.woff2') format('woff2'),
+        url('../fonts/NunitoSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito Sans Regular','Nunito Sans Bold','Nunito Sans Bold-Italic', 'Nunito Sans Italic',sans-serif;
+    background-color: #EDEDED ;
+    color:#4c4c4c;
+}
+.isDisabled {
+    color: #b3b3b3;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}
+a:link {
+    color: #006dcc;
+}
+a:visited {
+    color: #808080;
+}
+a:hover{
+    color: #2c6fef;
+}
+.text-warning {
+    color: #fbdd3d;
+}
+.text-success{
+    color: #1BC943;
+}
+.text-danger {
+    color: #E11428;
+}
+.text-weak {
+    color: #808080;
+}
+.box{
+    border: 1px solid #b3b3b3;
+}
+.box:hover{
+    border: 1px solid #F2B135;
+}
+
+div[class*="isDisabled"]{
+    color: #b3b3b3;
+    cursor: not-allowed;
+    opacity: 0.5;
+    text-decoration: none;
+}

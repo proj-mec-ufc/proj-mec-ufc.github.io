@@ -1,3 +1,5 @@
 src/
+old-things/
+node-modules/
 tailwind.config.js
 _config.yml

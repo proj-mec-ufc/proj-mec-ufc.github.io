@@ -89,14 +89,7 @@ new Morris.Bar({
     element: 'myChart',
     // Chart data records -- each entry in this array corresponds to a point on
     // the chart.
-    data: tabledata,
-    /* [
-      { year: '2008', value: 20 },
-      { year: '2009', value: 10 },
-      { year: '2010', value: 5 },
-      { year: '2011', value: 5 },
-      { year: '2012', value: 20 }
-    ], */
+    data: tabledata, 
     // The name of the data record attribute that contains x-values.
     xkey: 'municipio',
     // A list of names of data record attributes that contain y-values.

@@ -12,17 +12,20 @@
 </head>
 
 <body>
-    <div id="dt1" class="dynamic_table"></div>
+    <div id="dt1" class="dynamic_table" graph="off"></div>
 
-    <br/><br/>
-
-    <div id="dt2" class="dynamic_table" graph="on"></div>
-    <div><input id="btGraph" class="chart" refer="dt2" type="button" value="Gráfico" /></div>
-    <div id="message"></div><br/>
-    <div class="ct-chart ct-golden-section" id="chart1"></div>
+    <div>
+        <div id="dt2" class="dynamic_table" graph="on"></div>
+        <img id="showLine" src="../linechart.svg" class="imgButton" />
+        <img id="showBar" src="../barchart.svg" class="imgButton" />
+    </div>
+    <div class="divChart">
+        <div class="ct-chart ct-golden-section" id="chart2"></div>
+    </div>
 </body>
 
 <script>
+    let correct_color = "#adf7f6";
 
     // ----- dt1
 
@@ -70,17 +73,31 @@
     // -------------------------------------------
 
     $( document ).ready(function() {
+        let typeChart = "line";
+
         // dt1
         let refField1 = "Número";
-        //let digitedField1 = ["Unidade", "Dezena", "Centena", "Milhar"];
+        let digitedField1 = ""; //["Unidade", "Dezena", "Centena", "Milhar"];
         let table1 = createDynamicTable("#dt1", tableData_dt1, cols_dt1);
 
         // dt2
         let refField2 = "Município";
         let digitedField2 = "Distância";
         let table2 = createDynamicTable("#dt2", tableData_dt2, cols_dt2);
-        $(".chart").click({param1: "#chart1", param2: table2, param3: digitedField2, param4: "message"}, createChart);
+        if (document.getElementById("dt2").getAttribute("graph")=="on"){
+            createChart("#chart2", typeChart, table2, "Município", "Distância"); // *** need to change
+        }
         
+        document.getElementById('showLine').addEventListener('click', function (e) {
+            typeChart = "line";
+            if (document.getElementById("dt2").getAttribute("graph")=="on")
+                createChart("#chart2", typeChart, table2, digitedField2, refField2); // *** need to change
+        });
+        document.getElementById('showBar').addEventListener('click', function (e) {
+            typeChart = "bar";
+            if (document.getElementById("dt2").getAttribute("graph")=="on")
+                createChart("#chart2", typeChart, table2, digitedField2, refField2); // *** need to change
+        });
 
         // ***** cellEdited must to be reviewed *****
 
@@ -109,12 +126,12 @@
             }
             
             if (correctValue==digitedValue){
-                cell.getElement().style.backgroundColor = "#adf7f6";
+                cell.getElement().style.backgroundColor = correct_color;
             }
             else {
                 // accept zero if field is empty
                 if ((correctValue=='')&&(digitedValue=='0'))
-                    cell.getElement().style.backgroundColor = "#adf7f6";
+                    cell.getElement().style.backgroundColor = correct_color;
                 else {
                     cell.getElement().style.backgroundColor = "";
                 }
@@ -142,6 +159,10 @@
                     cell.getElement().style.backgroundColor = "";
                 }
             }
+            
+            if (document.getElementById("dt2").getAttribute("graph")=="on")
+                createChart("#chart2", typeChart, table2, digitedField2, refField2); // *** need to change
+            
         });
 
     });

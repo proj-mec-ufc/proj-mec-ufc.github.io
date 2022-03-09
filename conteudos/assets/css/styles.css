@@ -55,6 +55,14 @@ div[class*="isDisabled"]{
 .very-light-grey{
     background-color: #ededed;
 }
+.tooltips-decoration {
+    color: #006dcc;
+    text-decoration: underline;
+    
+}
+.tooltips-decoration:hover{
+    color: #F25B47;
+}
 .success{
     background-color: #1BC943;
     color: #EDEDED;

@@ -60,35 +60,19 @@ function createDynamicTable(dynamicTable, tableData, cols) {
     return table;
 };
 
-function createChart(event){
-    let chartObj = event.data.param1;
-    let table = event.data.param2;
-    let field = event.data.param3;
-    let message = event.data.param4;
-
+function createChart(chartObj, type="line", table, field, refField){
     let tableData = table.getData();
-    let filled = verify(tableData,field);
+    //let filled = verify(tableData,field);
+    let options = [];
 
-    // if editable fields are full filed
-    if (!filled) {
-        document.getElementById(message).innerText = "Preencha todos os valores.";
-    }
-    else{
-        tableData = selectField(tableData, field);
-          var data = {
-            labels: [''],
-            series: [ tableData ]
-            };
-        var options = {
-            showPoint: true,
-            lineSmooth: false,
-            axisX: {
-                showGrid: true,
-                showLabel: true
-            }
+    // show if editable fields are/arent full filed
+    //if (filled){
+        var data = {
+            labels: [ selectField(tableData, refField) ],
+            series: [ selectField(tableData, field) ]
         };
         var responsiveOptions = [
-            ['screen and (min-width: 641px) and (max-width: 1024px)', {
+            ['screen and (min-width: 321px) and (max-width: 800px)', {
                 seriesBarDistance: 8, //10,
                 axisX: {
                 labelInterpolationFnc: function (value) {
@@ -96,7 +80,7 @@ function createChart(event){
                 }
                 }
             }],
-            ['screen and (max-width: 640px)', {
+            ['screen and (max-width: 320px)', {
                 seriesBarDistance: 4, //5,
                 axisX: {
                 labelInterpolationFnc: function (value) {
@@ -105,6 +89,22 @@ function createChart(event){
                 }
             }]
         ];
-        new Chartist.Line(chartObj, data, options, responsiveOptions);
-    }
+        if (type=='line'){
+            options = {
+                showPoint: true,
+                lineSmooth: false,
+                axisX: {
+                    showGrid: true,
+                    showLabel: true
+                },
+                axisY: {
+                    offset: 60
+                }
+            };
+            new Chartist.Line(chartObj, data, options, responsiveOptions);
+        }
+        else {
+            new Chartist.Bar(chartObj, data, null, responsiveOptions);
+        }
+    //}
 }

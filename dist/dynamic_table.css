@@ -2,8 +2,31 @@
 .dynamic_table.tabulator {
     width:fit-content;
     border: 1px solid #999;
+    margin: 10px 0 10px 0;
+    display: inline-block;
 }
 
 .tabulator-cell{
     min-width: 100px !important;
+}
+
+.divChart {
+    max-width: 1024px;
+}
+
+.imgButton {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 1px solid blue;
+    bottom: 10px;
+}
+
+.show {
+    display: inline-block;
+}
+
+.hide {
+    display: none !important;
 }

@@ -1,0 +1,150 @@
+<html>
+<head>
+    <script src="../jquery-3.6.0.js"></script>
+    <script src=".././dist/dynamic_table.js" type="text/javascript"></script>
+
+    <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <link rel="stylesheet" type="text/css" href=".././dist/dynamic_table.css" />
+
+    <link rel="stylesheet" type="text/css" href="../chartist-js/dist/chartist.css" />
+    <script src="../chartist-js/dist/chartist.js"></script>
+</head>
+
+<body>
+    <div id="dt1" class="dynamic_table"></div>
+
+    <br/><br/>
+
+    <div id="dt2" class="dynamic_table" graph="on"></div>
+    <div><input id="btGraph" class="chart" refer="dt2" type="button" value="Gráfico" /></div>
+    <div id="message"></div><br/>
+    <div class="ct-chart ct-golden-section" id="chart1"></div>
+</body>
+
+<script>
+
+    // ----- dt1
+
+    let tableData_dt1 = [
+        {Número:"235", Milhar:"", Centena: "", Dezena: "", Unidade: ""},
+        {Número:"1647", Milhar:"", Centena: "", Dezena: "", Unidade: ""},
+        {Número:"81", Milhar:"", Centena: "", Dezena: "", Unidade: ""},
+    ];
+
+    let cols_dt1 = [
+        {field:"Número"},
+        {field:"Milhar",  editor:"input" },
+        {field:"Centena", editor:"input" },
+        {field:"Dezena",  editor:"input" },
+        {field:"Unidade", editor:"input" },
+    ];
+
+    let correctValues_dt1 = [
+        {Número:"235", Milhar:"0", Centena: "2", Dezena: "3", Unidade: "5"},
+        {Número:"1647", Milhar:"1", Centena: "6", Dezena: "4", Unidade: "7"},
+        {Número:"81", Milhar:"0", Centena: "0", Dezena: "8", Unidade: "1"},
+    ];
+
+    // ----- dt2
+
+    let tableData_dt2 = [
+        {Município:"Caucaia", Distância:""},
+        {Município:"Sobral", Distância:""},
+        {Município:"Quixeramobim", Distância:""},
+        {Município:"Maranguape", Distância:""},
+    ];
+
+    let cols_dt2 = [
+        {field:"Município"},
+        {field:"Distância",  editor:"input" },
+    ];
+
+    let correctValues_dt2 = [
+        {Município:"Caucaia", Distância:"17"},
+        {Município:"Sobral", Distância:"240"},
+        {Município:"Quixeramobim", Distância:"203"},
+        {Município:"Maranguape", Distância:"27"},
+    ];
+
+    // -------------------------------------------
+
+    $( document ).ready(function() {
+        // dt1
+        let refField1 = "Número";
+        //let digitedField1 = ["Unidade", "Dezena", "Centena", "Milhar"];
+        let table1 = createDynamicTable("#dt1", tableData_dt1, cols_dt1);
+
+        // dt2
+        let refField2 = "Município";
+        let digitedField2 = "Distância";
+        let table2 = createDynamicTable("#dt2", tableData_dt2, cols_dt2);
+        $(".chart").click({param1: "#chart1", param2: table2, param3: digitedField2, param4: "message"}, createChart);
+        
+
+        // ***** cellEdited must to be reviewed *****
+
+        table1.on("cellEdited", function(cell){ 
+            let col = cell.getColumn();
+            let row = cell.getRow();
+            let field = col.getField();
+            let digitedValue = row.getData()[field];
+            let rowNumber = getLine(row.getData()[refField1],refField1,correctValues_dt1); // *** need to change
+            let correctValue;
+
+            // *** need to change
+            switch (field) {
+            case 'Unidade':
+                correctValue = correctValues_dt1[rowNumber].Unidade;
+                break;
+            case 'Dezena':
+                correctValue = correctValues_dt1[rowNumber].Dezena;
+                break;
+            case 'Centena':
+                correctValue = correctValues_dt1[rowNumber].Centena;
+                break;
+            case 'Milhar':
+                correctValue = correctValues_dt1[rowNumber].Milhar;
+                break;
+            }
+            
+            if (correctValue==digitedValue){
+                cell.getElement().style.backgroundColor = "#adf7f6";
+            }
+            else {
+                // accept zero if field is empty
+                if ((correctValue=='')&&(digitedValue=='0'))
+                    cell.getElement().style.backgroundColor = "#adf7f6";
+                else {
+                    cell.getElement().style.backgroundColor = "";
+                }
+            }
+        });
+        table2.on("cellEdited", function(cell){ 
+            let col = cell.getColumn();
+            let row = cell.getRow();
+            let field = col.getField();
+            let digitedValue = row.getData()[field];
+            let rowNumber = getLine(row.getData()[refField2],refField2, correctValues_dt2);    // *** need to change
+            let correctValue;
+
+            if (field==digitedField2)                                       // *** need to change
+                correctValue = correctValues_dt2[rowNumber][digitedField2]; // *** need to change
+            
+            if (correctValue==digitedValue){
+                cell.getElement().style.backgroundColor = "#adf7f6";
+            }
+            else {
+                // accept zero if field is empty
+                if ((correctValue=='')&&(digitedValue=='0'))
+                    cell.getElement().style.backgroundColor = "#adf7f6";
+                else {
+                    cell.getElement().style.backgroundColor = "";
+                }
+            }
+        });
+
+    });
+</script>
+
+</html>

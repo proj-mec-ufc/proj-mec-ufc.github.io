@@ -7,7 +7,7 @@
 }
 
 .tabulator-cell{
-    min-width: 100px !important;
+    width: 110px !important;
 }
 
 .divChart {

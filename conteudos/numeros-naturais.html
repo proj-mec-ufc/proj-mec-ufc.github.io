@@ -401,7 +401,7 @@
                   <tr>
                     <td>Quixeramobim</td>
                     <td>203</td>
-                    <td>3275</td>
+                    <td>3276</td>
                     <td>85565</td>
                   </tr>
                   <tr>
@@ -520,38 +520,40 @@
 
     // ----- card 9 dt1 
     let tableData_dt1 = [
-        {Número:"235", Milhar:"", Centena: "", Dezena: "", Unidade: ""},
-        {Número:"1647", Milhar:"", Centena: "", Dezena: "", Unidade: ""},
-        {Número:"81", Milhar:"", Centena: "", Dezena: "", Unidade: ""},
+        {Forma:"1", Número:"210711", Milhar:"", Centena: "", Dezena: "", Unidade: "", Observação: "Centena-Dezena-Unidade"},
+        {Forma:"2", Número:"210711", Milhar:"", Centena: "", Dezena: "", Unidade: "", Observação: "Milhar-Dezena-Unidade"},
+        {Forma:"3", Número:"210711", Milhar:"", Centena: "", Dezena: "", Unidade: "", Observação: "Milhar-Centena-Dezena-Unidade"},
     ];
     let cols_dt1 = [
+        {field:"Forma"},
         {field:"Número"},
         {field:"Milhar",  editor:"input" },
         {field:"Centena", editor:"input" },
         {field:"Dezena",  editor:"input" },
         {field:"Unidade", editor:"input" },
+        {field:"Observação" },
     ];
     let correctValues_dt1 = [
-        {Número:"235", Milhar:"0", Centena: "2", Dezena: "3", Unidade: "5"},
-        {Número:"1647", Milhar:"1", Centena: "6", Dezena: "4", Unidade: "7"},
-        {Número:"81", Milhar:"0", Centena: "0", Dezena: "8", Unidade: "1"},
+        {Forma:"1", Número:"210711", Milhar:"0", Centena: "2107", Dezena: "1", Unidade: "1", Observação: "Centena-Dezena-Unidade"},
+        {Forma:"2", Número:"210711", Milhar:"210", Centena: "0", Dezena: "71", Unidade: "1", Observação: "Milhar-Dezena-Unidade"},
+        {Forma:"3", Número:"210711", Milhar:"210", Centena: "7", Dezena: "1", Unidade: "1", Observação: "Milhar-Centena-Dezena-Unidade"},
     ];
     // ----- card 10 dt2
     let tableData_dt2 = [
-        {Município:"Caucaia", Distância:""},
-        {Município:"Sobral", Distância:""},
-        {Município:"Quixeramobim", Distância:""},
-        {Município:"Maranguape", Distância:""},
+        {Município:"Caucaia", Área:""},
+        {Município:"Sobral", Área:""},
+        {Município:"Quixeramobim", Área:""},
+        {Município:"Iguatu", Área:""},
     ];
     let cols_dt2 = [
         {field:"Município"},
-        {field:"Distância",  editor:"input" },
+        {field:"Área",  editor:"input" },
     ];
     let correctValues_dt2 = [
-        {Município:"Caucaia", Distância:"17"},
-        {Município:"Sobral", Distância:"240"},
-        {Município:"Quixeramobim", Distância:"203"},
-        {Município:"Maranguape", Distância:"27"},
+        {Município:"Caucaia", Área:"1228"},
+        {Município:"Sobral", Área:"2068"},
+        {Município:"Quixeramobim", Área:"3276"},
+        {Município:"Iguatu", Área:"1029"},
     ];
 
     // -------------------------------------------
@@ -594,16 +596,17 @@
 
       // -- card 9
       // dt1
-      let refField1 = "Número";
+      let refField1 = "Forma";
       let digitedField1 = ""; //["Unidade", "Dezena", "Centena", "Milhar"];
       let dynamicTable1 = createDynamicTable("#dt1", tableData_dt1, cols_dt1);
+
       // -- card 10
       // dt2
       let refField2 = "Município";
-      let digitedField2 = "Distância";
+      let digitedField2 = "Área";
       let dynamicTable2 = createDynamicTable("#dt2", tableData_dt2, cols_dt2);
       if (document.getElementById("dt2").getAttribute("graph")=="on"){
-          createChart("#chart2", typeChart, dynamicTable2, "Município", "Distância"); // *** need to change
+          createChart("#chart2", typeChart, dynamicTable2, "Município", "Área"); // *** need to change
       }
       document.getElementById('showLine').addEventListener('click', function (e) {
           typeChart = "line";
@@ -691,7 +694,7 @@
             case 'Milhar':
                 correctValue = correctValues_dt1[rowNumber].Milhar;
                 break;
-            }            
+            }
             if (correctValue==digitedValue){
                 cell.getElement().style.backgroundColor = correct_color;
             }

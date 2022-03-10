@@ -9,6 +9,12 @@
 
     <link href="./assets/css/chartist.css" rel="stylesheet" type="text/css" />
     <script src="./assets/js/chartist.js"></script>
+
+    <script type="text/javascript" src="./assets/js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="./assets/js/d3.geo.projection.v0.min.js"></script>
+    <script type="text/javascript" src="./assets/js/celestial.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/celestial.css">
+    <script src="./assets/js/map.js"></script>
 </head>
 
 <body>
@@ -21,6 +27,10 @@
     </div>
     <div class="divChart">
         <div class="ct-chart ct-golden-section" id="chart2"></div>
+    </div>
+
+    <div width="auto" height="300" class="divChart">
+        <div id="celestial-map"></div>
     </div>
 </body>
 
@@ -162,8 +172,9 @@
             
             if (document.getElementById("dt2").getAttribute("graph")=="on")
                 createChart("#chart2", typeChart, dynamicTable2, digitedField2, refField2); // *** need to change
-            
         });
+
+        drawMap();
 
     });
 </script>

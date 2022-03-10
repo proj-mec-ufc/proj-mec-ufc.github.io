@@ -1,6 +1,6 @@
 // Elementos iteretivos
 iterativeSVG('../conteudos/assets/svg/regua.svg', '#regua', () => {
-    let chosen = SVG('#regua').text("Escolhidos:");
+    let chosen = SVG('#regua').findOne('#chosen');
     chosen.x(chosen.parent().width()/2);
     let group = SVG('g#marks');
     let balls = group.find('circle')
@@ -33,7 +33,8 @@ iterativeSVG('../conteudos/assets/svg/regua.svg', '#regua', () => {
 
         r.on("click", (el) => {
             r.selected = true;
-            c.css("opacity",'1');              
+            c.css("opacity",'1');
+            chosen.text(chosen.text()+" "+txt.text());           
         });
 
         /* let txt = text.clone();

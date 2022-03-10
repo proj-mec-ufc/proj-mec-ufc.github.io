@@ -7,10 +7,7 @@
   <meta name="description" content="Site exemplo de conteúdo interativo" />
 
   <title>N&uacute;meros Naturais</title>
-  <link rel="preload" href="./assets/fonts/NunitoSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="./assets/fonts/NunitoSans-Italic.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="./assets/fonts/NunitoSans-Bold.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="./assets/fonts/NunitoSans-BoldItalic.woff2" as="font" type="font/woff2" crossorigin />
+
 
   <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
 
@@ -35,177 +32,64 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div id="aside" class="col s4 m3 l3">
-        <div id="header-aside">
+        
+  <w-s>
+    <h1>Tarefa 2</h1>
+    <p>A distância entre os municípios de Serra da Saudade e Belo Horizonte é de, aproximadamente, 259 quilômetros.
+    </p>
 
-        </div>
-        <div id="counter-aside">
+    a. Escreva esse número por extenso.
+    b. Decomponha esse número de duas formas diferentes.
 
-        </div>
+    <table>
+      <tr>
+        <th>Número</th>
+        <th>Centena</th>
+        <th>Dezenas</th>
+        <th>Unidades</th>
+      </tr>
+      <tr>
+        <td>259</td>
+        <td>
+          <w-i solution="200"></w-i>
+        </td>
+        <td>
+          <w-i solution="50"></w-i>
+        </td>
+        <td>
+          <w-i solution="9"></w-i>
+        </td>
+      </tr>
+      <tr>
+        <td>359</td>
+        <td>
+          <w-i solution="300"></w-i>
+        </td>
+        <td>
+          <w-i solution="50"></w-i>
+        </td>
+        <td>
+          <w-i solution="9"></w-i>
+        </td>
+      </tr>
+    </table>
+  </w-s>
+  <w-s>
+    <h1>Tarefa 03</h1>
 
-        <a href="#menu" id="menuLink" class="menu-link">
+    <p>A seguinte tabela mostra, em valores aproximados, a distância para Belo Horizonte (em quilômetros), as áreas
+      (em quilômetros quadrados) e as populações (em número de habitantes) de alguns municípios de Minas Gerais, de
+      acordo com dados do IBGE:</p>
 
-          <span></span>
-        </a>
-        <div id="menu" class="level-item">
-          <div class="pure-menu">
-            <ul class="pure-menu-list">
-              <li class="pure-menu-item"><a href="#card1" class="">Sistema Posicional Decimal</a></li>
-              <li class="pure-menu-item"><a href="#card2" class="">Unidades</a></li>
-              <li class="pure-menu-item"><a href="#card3" class="">Algarismos Decimais</a></li>
-              <li class="pure-menu-item"><a href="#card4" class="">Algarismos Decimais - Exemplos</a></li>
-              <li class="pure-menu-item"><a href="#card5" class="">Algarismos Decimais - Exemplos (cont)</a></li>
-              <li class="pure-menu-item"><a href="#card6" class="">Atividades</a></li>
-            </ul>
-          </div>
+    <div id="cidades-table"></div>
 
-        </div>
-      </div>
-      <div id="content" class="col s8">
-        <div class="row">
-          <div class="col s4 left white box">
-            <div class="row white valign-wrapper">
-              <div class="col s2">
-                <i class="medium material-icons  grey-text lighten-1-text ">chevron_left</i>
-              </div>
-              <div class="col s10">
-                <p class="grey-text lighten-3-text"><a href="#" class="grey-text lighten-3-text">Anterior</a> </p>
-                <h5 class="text-success truncate">Sistema Posicional Decimal</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col s4 right white box">
-            <div class="row white valign-wrapper">
-              <div class="col s10 right-align">
-                <p class="grey-text lighten-3-text"><a href="#" class="grey-text lighten-3-text">Posterior</a> </p>
-                <h5 class="text-success truncate">Algarismos Decimais - Exemplos (cont)</h5>
-              </div>
-              <div class="col s2">
-                <i class="medium material-icons  grey-text lighten-1-text ">chevron_right</i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row white">
-          <div class="col s12">
-            <h3>Sistema Posicional Decimal</h3>
-            <p class="flow-text">Se você pensar por <strong>dois</strong> segundos,
-              vai reconhecer <strong>milhões</strong> de situações em que os números são usados à sua volta. Mesmo
-              na frase anterior, usamos números para falar de números!</p>
-            <p class="flow-text">Por exemplo, todos nós, em algum momento da vida,
-              ficamos maravilhados contando as estrelas no céu noturno.</p>
-            <p class="flow-text">Clique nas estrelas da <strong>imagem</strong> e
-              deixo que o computaor lhe mostre algumas estrelas.</p>
-            <figure>
-              <div><a class="flow-text"
-                  href="https://wwagner33.github.io/planetarium.html">https://wwagner33.github.io/planetarium.html</a>
-              </div>
-            </figure>
-
-            <p class="flow-text">Agora tente contar o máximo de estrelas que
-              estiveres vendo nesse “mapa do céu”. Tentou? É difícil, não é?</p>
-
-            <p class="flow-text">Em muitas culturas, o uso de partes do corpo para
-              contar determina a maneira como representamos quantidades e números. Uma forma de contar que nós
-              humanos usamos para contar foi usando os dedos das mãos.</p>
-
-            <p class="flow-text">Clique no vídeo abaixo e veja como se conta com as
-              mãos de <strong>um </strong>até <strong>dez</strong>.</p>
-            <figure>
-              <div><a class="flow-text"
-                  href="https://www.youtube.com/watch?v=9gxndvXzC6U">https://www.youtube.com/watch?v=9gxndvXzC6U</a>
-              </div>
-            </figure>
-
-            <p class="flow-text">Mas o que aconteceria se precisássemos contar 20
-              (vinte) maçãs? Bem, poderíamos contar de cinco em cinco, usando as mãos, até chegarmos a vinte. </p>
-
-            <p class="flow-text">Algumas pessoas que moram num pais chamado Papua
-              Nova Guiné, utilizam pontos do corpo para poderem contar até 20 (vinte). Veja como eles fazem:</p>
-
-            <img src="./assets/images/Captura_de_Tela_2022-02-23_as_15.36.01.png" alt="" class="pure-img-responsive">
-
-            <svg id="contar"></svg>
-
-            <p class="flow-text">E se precisássemos contar até mil? </p>
-            <figure>
-              <div style="font-size:1.5em"><span class="icon">💡</span></div>
-              <div style="width:100%">Bem, nesse caso, precisaríamos usar mais do que as mãos. Foi assim que
-                pudemos inventar os<strong> ALGARISMOS</strong>.</div>
-            </figure>
-
-            <p class="flow-text"></p>>Nós usamos os chamados Algarismos
-            <strong>Hindu-arábicos</strong><strong> ou Decimais</strong>. Na imagem a seguir, você pode ver a
-            representação dos números Zero, Um, Dois, Três, Quatro, Cinco, Seis, Sete, Oito, Nove.</p>
-
-            <img src="./assets/images/Screenshot_select-area_20220222153149.png" alt="" class="pure-img-responsive">
-          </div>
-
-        </div>
-      </div>
-      <w-s>
-        <h1>Tarefa 2</h1>
-        <p>A distância entre os municípios de Serra da Saudade e Belo Horizonte é de, aproximadamente, 259 quilômetros.
-        </p>
-
-        a. Escreva esse número por extenso.
-        b. Decomponha esse número de duas formas diferentes.
-
-        <table>
-          <tr>
-            <th>Número</th>
-            <th>Centena</th>
-            <th>Dezenas</th>
-            <th>Unidades</th>
-          </tr>
-          <tr>
-            <td>259</td>
-            <td>
-              <w-i solution="200"></w-i>
-            </td>
-            <td>
-              <w-i solution="50"></w-i>
-            </td>
-            <td>
-              <w-i solution="9"></w-i>
-            </td>
-          </tr>
-          <tr>
-            <td>359</td>
-            <td>
-              <w-i solution="300"></w-i>
-            </td>
-            <td>
-              <w-i solution="50"></w-i>
-            </td>
-            <td>
-              <w-i solution="9"></w-i>
-            </td>
-          </tr>
-        </table>
-      </w-s>
-      <w-s>
-        <h1>Tarefa 03</h1>
-
-        <p>A seguinte tabela mostra, em valores aproximados, a distância para Belo Horizonte (em quilômetros), as áreas
-          (em quilômetros quadrados) e as populações (em número de habitantes) de alguns municípios de Minas Gerais, de
-          acordo com dados do IBGE:</p>
-
-        <div id="cidades-table"></div>
-
-        <div id="myChart" style="width:100%;max-width:700px"></div>
-      </w-s>
-    </div>
-
-
-  </div>
+    <div id="myChart" style="width:100%;max-width:700px"></div>
+  </w-s>
 
 
 
   <!--JavaScript at end of body for optimized loading-->
-  <!-- Não é melhor usar defer??? -->
+
   <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
 </body>
 

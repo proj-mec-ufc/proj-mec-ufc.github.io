@@ -1,159 +1,306 @@
 <!DOCTYPE html>
-  <html lang="pt-br">
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="description"
-          content="Site exemplo de conteúdo interativo"/>
-      
-        <title>N&uacute;meros Naturais</title>
-      
-        <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon"/>
+<html lang="pt-br">
 
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Site exemplo de conteúdo interativo" />
 
-      <link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>
-      <link type="text/css" rel="stylesheet" href="assets/css/styles.css"  media="screen,projection"/>
+  <title>N&uacute;meros Naturais</title>
+
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <link type="text/css" rel="stylesheet" href="assets/css/materialize.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="assets/css/styles.css" media="screen,projection" />
 
 
 
-    </head>
+</head>
 
-    <body>
-      <div class="container">
-        <div id="header" class="row white">
-          <div class="col s12">
-              <div class="section">
-                <nav>
-                  <div class="nav-wrapper white">
-                    <a href="#" data-target="mobile-content" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
-                      <li>
-                        <a href="#">
-                          <i class="material-icons text-primary ">notifications_none</i>
-                        </a>
-                      </li>
-                      <li><a href="#"><i class="material-icons text-bright-blue">library_books</i></a></li>
-                      <li><a href="#"><i class="material-icons text-salmon-pearl">exit_to_app</i></a></li>
-  
-                    </ul>
-                  </div>
-                </nav>
-              
-                <ul class="sidenav" id="mobile-content">
-                  <li><a href="#"><i class="material-icons black-text">notifications</i></a></li>
-                  <li><a href="#"><span class="black-text"> Wellington</span></a></li>
-                  <li><a href="#"><i class="material-icons orange-text">exit_to_app</i></a></li>
-                </ul>                  
-              </div>            
+<body>
+  <div class="container">
+    <div id="header" class="row white">
+      <div class="col s12">
+          <nav>
+            <div class="nav-wrapper white">
+              <a href="#" data-target="mobile-content" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+              <ul class="right hide-on-med-and-down">
+                <li>
+                  <a href="#">
+                    <i class="material-icons text-primary ">notifications_none</i>
+                  </a>
+                </li>
+                <li><a href="#"><i class="material-icons text-bright-blue">library_books</i></a></li>
+                <li><a href="#"><i class="material-icons text-salmon-pearl">exit_to_app</i></a></li>
+
+              </ul>
+            </div>
+          </nav>
+          <ul class="sidenav" id="mobile-content">
+            <li><a href="#"><i class="material-icons black-text">notifications</i></a></li>
+            <li><a href="#"><span class="black-text"> Wellington</span></a></li>
+            <li><a href="#"><i class="material-icons orange-text">exit_to_app</i></a></li>
+          </ul>
+      </div>
+
+    </div>
+
+
+    <div id="main" class="row  white flow-text">
+      <div id="aside" class="col s4">
+
+        <div id="logo-class" class="section center">
+
+          <div>
+            <img class="z-depth-1 responsive-img" width="220" height="150" src="./assets/images/content-icon.svg" alt="uma imagem com os números um, dois, uma régua e uma calculadora" />
           </div>
 
+          <div>
+            <a class="btn waves-effect waves-light white-text salmon-pearl" href="#"> Voltar</a>
+          </div>
+          
         </div>
 
+        <div id="menu-aside" class="section">
 
-        <div id="main" class="row  white">
-            <div id="aside" class="col s3">
-                <div id="header-aside" class="section center-align">
-                    <i class="large material-icons">insert_chart</i>
-                </div>
-
-                <div id="counter-aside" class="section center-align">
-                      <i class="large material-icons">insert_chart</i>
-                </div>
-
-                <div id="menu-aside" class="section">
-                  
-                  <ul class="collapsible">
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">menu_book</i>Sistema Posicional Decimal</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">menu_book</i>Unidades</div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">menu_book</i>Algarismos Decimais
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">menu_book</i>Exemplos<i class="material-icons">
-                        chevron_right </i></div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                    </li>
-                    <li>
-                      <div class="collapsible-header"><i class="material-icons">menu_book</i>Atividades<i class="material-icons">
-                        chevron_right </i></div>
-                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                    </li>
-                  </ul>
-                </div>             
-            </div>
-            <div id="content" class="col s9">
-              <div id="main-content" class="row">
-                <div class="col s12 valign-wrapper  white">
-                  <div id="card1" class="section">
-                    <h3>Sistema Posicional Decimal</h3>
-                    <p class="flow-text">Se você pensar por <strong>dois</strong> segundos,
-                      vai reconhecer <strong>milhões</strong> de situações em que os números são usados à sua volta. Mesmo
-                      na frase anterior, usamos números para falar de números!</p>
-                    <p class="flow-text">Por exemplo, todos nós, em algum momento da vida,
-                      ficamos maravilhados contando as estrelas no céu noturno.</p>
-                    <p class="flow-text">Clique nas estrelas da <strong>imagem</strong> e
-                      deixo que o computaor lhe mostre algumas estrelas.</p>
-
-                      <div width="auto" height="700"  class="video-container">
-                        <iframe src="https://ofrohn.github.io/celestial-demo/location.html" frameborder="0"></iframe>
-                      </div>
-
-
-                    <p class="flow-text">Agora tente contar o máximo de estrelas que
-                      estiveres vendo nesse “mapa do céu”. Tentou? É difícil, não é?</p>
-      
-                    <p class="flow-text">Em muitas culturas, o uso de partes do corpo para
-                      contar determina a maneira como representamos quantidades e números. Uma forma de contar que nós
-                      humanos usamos para contar foi usando os dedos das mãos.</p>
-      
-                      <p class="flow-text">Clique no vídeo abaixo e veja como se conta com as
-                      mãos de <strong>um </strong>até <strong>dez</strong>.</p>
-                      <div class="video-container">
-                        <iframe width="auto" height="600" src="https://www.youtube.com/embed/9gxndvXzC6U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                      </div>
-                    <p class="flow-text">Mas o que aconteceria se precisássemos contar 20
-                      (vinte) maçãs? Bem, poderíamos contar de cinco em cinco, usando as mãos, até chegarmos a vinte. </p>
-      
-                    <p class="flow-text">Algumas pessoas que moram num pais chamado Papua
-                      Nova Guiné, utilizam pontos do corpo para poderem contar até 20 (vinte). Veja como eles fazem:</p>
-      
-                    <img src="./assets/images/Captura_de_Tela_2022-02-23_as_15.36.01.png" alt="" class="pure-img-responsive">
-      
-                    <p class="flow-text">E se precisássemos contar até mil? </p>
-                    <blockquote>
-                      <span class="icon">💡</span>
-                      Bem, nesse caso, precisaríamos usar mais do que as mãos. Foi assim que
-                        pudemos inventar os<strong> ALGARISMOS</strong>.
-                    </blockquote>
-      
-                    <p class="flow-text">Nós usamos os chamados Algarismos
-                      <a href="" class="tooltipped tooltips-decoration" data-position="bottom" data-html="true" data-tooltip="Isso quer dizer que os algarismos que usamos foram inventados por pessoas da Índia e da região onde fica a Arábia Saudita">Hindu-arábicos</a><strong> ou Decimais</strong>. Na imagem a seguir, você pode ver a
-                      representação dos números Zero, Um, Dois, Três, Quatro, Cinco, Seis, Sete, Oito, Nove.</p>
-          
-                    <img src="./assets/images/Screenshot_select-area_20220222153149.png" alt="" class="pure-img-responsive">
-                  </div>
-                  <div id="card2" class="section">
-
-                  </div>
-                  <div id="card3" class="setion">
-                    
-                  </div>
-                  <div id="card4" class="section">
-                    
-                  </div>
-                </div>
-             </div>
-            </div>
+          <ul class="collapsible">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">menu_book</i>Sistema Posicional Decimal</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">menu_book</i>Unidades</div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">menu_book</i>Algarismos Decimais</div>
+                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">menu_book</i>Exemplos<i class="material-icons">
+                  chevron_right </i></div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">menu_book</i>Atividades<i
+                  class="material-icons">
+                  chevron_right </i></div>
+              <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            </li>
+          </ul>
         </div>
       </div>
+      <div id="content" class="col s8">
+        <div id="main-content" class="row">
+          <div class="col s12 white">
+
+            <!-- CARD1  -->
+            <div id="card1" class="section flow-text">
+              <h3>Sistema Posicional Decimal</h3>
+              <p>Se você pensar por <strong>dois</strong> segundos,
+                vai reconhecer <strong>milhões</strong> de situações em que os números são usados à sua volta. Mesmo
+                na frase anterior, usamos números para falar de números!</p>
+              <p>Por exemplo, todos nós, em algum momento da vida,
+                ficamos maravilhados contando as estrelas no céu noturno.</p>
+              <p>Clique nas estrelas da <strong>imagem</strong> e
+                deixo que o computador lhe mostre algumas estrelas.</p>
+
+              <div class="responsive-img">
+                <iframe width="auto" height="600" src="https://ofrohn.github.io/celestial-demo/location.html" frameborder="0" sandbox="allow-same-origin" allowfullscreen></iframe>
+              </div>
+
+              <p>Agora tente contar o máximo de estrelas que
+                estiveres vendo nesse “mapa do céu”. Tentou? É difícil, não é?
+              </p>
+
+              <p>Em muitas culturas, o uso de partes do corpo para
+                contar determina a maneira como representamos quantidades e números. Uma forma de contar que nós
+                humanos usamos para contar foi usando os dedos das mãos.</p>
+
+              <p> Clique no vídeo abaixo e veja como se conta com as
+                mãos  um até dez.</p>
+
+                <figure>
+                  <div class="video-container">
+                    <iframe width="auto" height="600" src="https://www.youtube.com/embed/9gxndvXzC6U"
+                      title="YouTube video player" frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+                  </div>
+                  <figcaption class="small-text"><cite>Vídeo: Aprendendo os números e a contar até 10</cite></figcaption>
+                </figure>
+
+              <p>Mas o que aconteceria se precisássemos contar 20
+                (vinte) maçãs? Bem, poderíamos contar de cinco em cinco, usando as mãos, até chegarmos a vinte. </p>
+
+              <p>Algumas pessoas que moram num pais chamado Papua
+                Nova Guiné, utilizam pontos do corpo para poderem contar até 20 (vinte). Veja como eles fazem:</p>
+
+              <img src="./assets/images/Captura_de_Tela_2022-02-23_as_15.36.01.png" alt="" class="pure-img-responsive">
+
+              <p>E se precisássemos contar até mil? </p>
+
+              <div class="row">
+                <div class="col s11">
+                  <blockquote>
+                    <div class="card very-light-grey">
+                      <div class="card-content">
+                        <p class="flow-text">Bem, nesse caso, precisaríamos usar mais do que as mãos. Foi assim que
+                          pudemos inventar os<strong> ALGARISMOS</strong>.</p>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+
+              
+              <p>Nós usamos os chamados Algarismos
+                <a href="" class="tooltipped tooltips-decoration" data-position="bottom" data-html="true"
+                  data-tooltip="Isso quer dizer que os algarismos que usamos foram inventados por pessoas da Índia e da região onde fica a Arábia Saudita">Hindu-arábicos</a>
+                  ou <a href="" class="tooltipped tooltips-decoration" data-position="bottom" data-html="true"
+                  data-tooltip="Sistema posicional de base 10">Decimais</a>. Na imagem a seguir, você pode ver a
+                representação dos números Zero, Um, Dois, Três, Quatro, Cinco, Seis, Sete, Oito, Nove.</p>
+
+              <img src="./assets/images/Screenshot_select-area_20220222153149.png" alt="" class="pure-img-responsive">
+
+              <div class="row">
+                <div class="col s11">
+                  <blockquote>
+                    <div class="card-panel z-depth-2 deep-purple accent-1 white-text">
+                      <div class="card-content">
+                        <p>Entre com os algarismos correspondentes aos números de maçãs apresentados a seguir.</p>
+                        <p>🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎</p>
+                        <p>? + ? = ?</p>
+                        </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+
+
+          </div>
+
+            <!-- CARD2  -->
+
+            <div id="card2" class="section flow-text">
+              <h3>Unidades</h3>
+              <p>Cada algarismo representa um determinado número de
+                u<strong>nidades</strong>. Por exemplo, <strong>1</strong> representa <strong>uma</strong> unidade.
+                Já o <strong>9</strong> representa __ unidades.</p>
+              <p>Uma <strong>unidade</strong> pode ser qualquer
+                coisa, como uma maçã, uma laranja, uma estrela ou um cachorro.</p>
+              <h3><strong>Exemplos de Unidades</strong></h3>
+              <p>Uma unidade, por exemplo, pode ser um
+                <strong>ladrilho</strong>.</p>
+              <p>
+              </p>
+              <p>Vejamos um exercício para podermos entender melhor
+                a ideia de <strong>unidade</strong> aplicada a um problema. </p>
+
+                <div class="row">
+                  <div class="col s11">
+                    <blockquote>
+                      <div class="card-panel z-depth-2 deep-purple accent-1 white-text">
+                        <div class="card-content">
+                         <q>
+                          Um arquiteto está planejando o piso de um grande
+                          pátio que mede 18m por 30m. Ele quer que ela seja coberta de ladrilhos quadráticos, sem folgas ou
+                          sobreposições nas laterais. Qual é o maior tamanho de quadrados que ela pode usar?
+                         </q> <cite>(Fonte: <a
+                            href="https://pt.mathigon.org/course/divisibility/gcf">Mathigon</a></cite>
+                        </div>
+                      </div>
+                    </blockquote>
+                  </div>
+                </div>
+
+
+            </div>
+
+            <!-- CARD3  -->
+            <div id="card3" class="section flow-text">
+                <h3>Algarismos Decimais</h3>
+                <p>Você já deve ter visto esses algarismos em
+                  vários cantos de sua casa ou em outros locais.</p>
+
+                Letreiro Interativo
+
+                <figure id="1d031428-ca13-4836-ab2e-1770314163be" class="image"><a
+                      href="Nu%CC%81meros%20N%2003482/preco.png"><img style="width:800px"
+                        src="Nu%CC%81meros%20N%2003482/preco.png" /></a></figure>
+                <figure id="f62016ea-c88d-4af8-b2dc-37368fa22510" class="image"><a
+                      href="Nu%CC%81meros%20N%2003482/boloaniversario_6anos.webp"><img style="width:1000px"
+                        src="Nu%CC%81meros%20N%2003482/boloaniversario_6anos.webp" /></a></figure>
+                <figure id="74b557d7-cf4f-43e9-9c5e-3d69f71eba23" class="image"><a
+                      href="Nu%CC%81meros%20N%2003482/Screenshot_select-area_20220222154045.png"><img
+                        style="width:111px"
+                        src="Nu%CC%81meros%20N%2003482/Screenshot_select-area_20220222154045.png" /></a>
+                </figure>
+
+
+                <p>E como podemos usar esses algarismos
+                  hindu-arábicos para contar quantidades maiores que 9 (nove)? Os seres humanos tiveram uma ideia
+                  realmente genial para esse propósito.</p>
+
+                <span class="icon">💡</span>
+                <p>Combinar esses dez algarismos para expressar as diferentes quantidades, mais ou menos como combinamos as letras para formar. </p>
+
+                <p >Por exemplo, o número 12 (doze) significa: </p>
+
+                    <p>12 = 10 + 2</p>
+                    <p>onde 10 = __+ 1 unidades. Da mesma
+                      forma:
+                    <p>12 = _ + _ + 1 + 1.</p>
+
+                <p>Observe que 12 é composto de uma dezena (dez
+                  unidades), mais 2 unidades. O algarismo 1, no número 12, indica <strong>uma dezena</strong> e
+                  não <strong>uma unidade</strong>.</p>
+
+                  <span class="icon">📢</span>
+                  
+                  <p>Você deve ter visto, no texto acima, que quando se quer mostrar que um numero vai ser <strong>SOMADO</strong>   a outro se usa o sinal <strong>+</strong>. Pois é a <strong>Soma</strong> é quando você acrescenta uma determinada quantidade de unidades de um número a outro número.</p>
+
+                  <p> Por exemplo:</p>
+                  <p> 2 + 3 = 5, ou ainda, </p>
+                  <p>🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎</p>
+                  <p>Veremos mais sobre o que seja a Soma em outra parte de nosso material.</p>
+             </div>
+
+            <!-- CARD4  -->
+            <div id="card4" class="section flow-text">
+
+            </div>
+            <!-- CARD4  -->
+            <div id="card5" class="section flow-text">
+
+            </div>
+            <!-- CARD6  -->
+            <div id="card6" class="section flow-text">
+
+            </div>
+            <!-- CARD7  -->
+            <div id="card7" class="section flow-text">
+
+            </div>
+            <!-- CARD8  -->
+            <div id="card8" class="section flow-text">
+
+            </div>
+            <!-- CARD9  -->
+            <div id="card9" class="section flow-text">
+
+            </div>
+            <!-- CARD10  -->
+            <div id="card10" class="section flow-text">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!-- Não é melhor usar defer??? -->

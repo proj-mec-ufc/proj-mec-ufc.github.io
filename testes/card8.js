@@ -23,7 +23,7 @@
             });
         }); */
     });
-    
+
     // Graficos e tabelas
     //define some sample data
     var tabledata = [{
@@ -55,7 +55,7 @@
             populacao: "126486"
         },
     ];
-    
+
     //create Tabulator on DOM element with id "example-table"
     var table = new Tabulator("#cidades-table", {
         //height:205, // set height of table (in CSS or here), this enables the Virtual DOM and improves render speed dramatically (can be any valid css height value)
@@ -88,16 +88,20 @@
         SVG('[muni="' + row.getData().id + '"]').css({ fill: '#f06' });
     }); */
 
-    table.on("rowMouseOver", function(e, row){
+    table.on("rowMouseOver", function (e, row) {
         //e - the event object
         //row - row component
-        SVG('[muni="' + row.getData().id + '"]').css({ fill: '#f06' });
-        SVG('[cami="' + row.getData().id + '"]').css( 'stroke-width', '1565.000px' );
+        SVG('[muni="' + row.getData().id + '"]').css({
+            fill: '#f06'
+        });
+        SVG('[cami="' + row.getData().id + '"]').css('stroke-width', '1565.000px');
     });
 
-    table.on("rowMouseOut", function(e, row){
+    table.on("rowMouseOut", function (e, row) {
         //e - the event object
         //row - row component
-        SVG('[muni="' + row.getData().id + '"]').css({ fill: '#0009f8ff' });
-        SVG('[cami="' + row.getData().id + '"]').css( 'stroke-width', '264.583px' );
+        SVG('[muni="' + row.getData().id + '"]').css({
+            fill: '#0009f8ff'
+        });
+        SVG('[cami="' + row.getData().id + '"]').css('stroke-width', '264.583px');
     });

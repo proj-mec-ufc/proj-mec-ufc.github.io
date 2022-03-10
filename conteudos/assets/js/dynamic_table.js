@@ -96,9 +96,6 @@ function createChart(chartObj, type="line", table, field, refField){
                 axisX: {
                     showGrid: true,
                     showLabel: true
-                },
-                axisY: {
-                    offset: 60
                 }
             };
             new Chartist.Line(chartObj, data, options, responsiveOptions);

@@ -1,6 +1,6 @@
 
 function hide_all () {
-    document.getElementsByClassName("card").classList.add("hide");
+    document.getElementsByClassName("pages").classList.add("hide");
 }
 
 function show(id) {

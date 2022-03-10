@@ -36,8 +36,6 @@ function addTitleByField(cols){ //, editorParams){
     for (let i=0; i<cols.length; i++){
         cols[i]["title"] = cols[i]["field"];
         cols[i]["sorter"] = "string";
-        //cols[i]["editor"] = "cellEdited";
-        //cols[i]["editorParams"] = editorParams;
     }
     return cols;
 }
@@ -60,48 +58,46 @@ function createDynamicTable(dynamicTable, tableData, cols) {
     return table;
 };
 
+/// create chart
 function createChart(chartObj, type="line", table, field, refField){
     let tableData = table.getData();
-    //let filled = verify(tableData,field);
     let options = [];
 
-    // show if editable fields are/arent full filed
-    //if (filled){
-        var data = {
-            labels: [ selectField(tableData, refField) ],
-            series: [ selectField(tableData, field) ]
+    let data = {
+        labels: [ selectField(tableData, refField) ],
+        series: [ selectField(tableData, field) ]
+    };
+    let responsiveOptions = [
+        ['screen and (min-width: 321px) and (max-width: 800px)', {
+            seriesBarDistance: 8, //10,
+            axisX: {
+            labelInterpolationFnc: function (value) {
+                return value;
+            }
+            }
+        }],
+        ['screen and (max-width: 320px)', {
+            seriesBarDistance: 4, //5,
+            axisX: {
+            labelInterpolationFnc: function (value) {
+                return value[0];
+            }
+            }
+        }]
+    ];
+    if (type=='line'){
+        options = {
+            showPoint: true,
+            lineSmooth: false,
+            axisX: {
+                showGrid: true,
+                showLabel: true
+            }
         };
-        var responsiveOptions = [
-            ['screen and (min-width: 321px) and (max-width: 800px)', {
-                seriesBarDistance: 8, //10,
-                axisX: {
-                labelInterpolationFnc: function (value) {
-                    return value;
-                }
-                }
-            }],
-            ['screen and (max-width: 320px)', {
-                seriesBarDistance: 4, //5,
-                axisX: {
-                labelInterpolationFnc: function (value) {
-                    return value[0];
-                }
-                }
-            }]
-        ];
-        if (type=='line'){
-            options = {
-                showPoint: true,
-                lineSmooth: false,
-                axisX: {
-                    showGrid: true,
-                    showLabel: true
-                }
-            };
-            new Chartist.Line(chartObj, data, options, responsiveOptions);
-        }
-        else {
-            new Chartist.Bar(chartObj, data, null, responsiveOptions);
-        }
-    //}
+        new Chartist.Line(chartObj, data, options, responsiveOptions);
+    }
+    else {
+        new Chartist.Bar(chartObj, data, null, responsiveOptions);
+    }
+
 }

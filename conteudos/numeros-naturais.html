@@ -289,11 +289,11 @@
             </div>
             <!-- CARD6  -->
             <div id="card6" class="section card flow-text">
-
+              <div id="dt_card6" class="dynamic_table" graph="off"></div>
             </div>
             <!-- CARD7  -->
             <div id="card7" class="section card flow-text">
-
+              
             </div>
             <!-- CARD8  -->
             <div id="card8" class="section card flow-text">
@@ -351,18 +351,34 @@
 
   <script>
     let correct_color = "#adf7f6";
-    // ----- card 5
-    let tableData_card4 = [
+    // ----- card 5 
+    let tableData_card5 = [
         {Número:"776", Centena: "", Dezena: "", Unidade: ""},
     ];
-    let cols_card4 = [
+    let cols_card5 = [
         {field:"Número"},
         {field:"Centena", editor:"input" },
         {field:"Dezena",  editor:"input" },
         {field:"Unidade", editor:"input" },
     ];
-    let correctValues_card4 = [
+    let correctValues_card5 = [
         {Número:"776", Centena: "7", Dezena: "7", Unidade: "6"},
+    ];
+
+    // ----- card 6
+    let tableData_card6 = [
+        {Região:"Nordeste", Municípios:""},
+        {Região:"Sudeste", Municípios:""},
+        {Região:"Norte", Municípios:""},
+    ];
+    let cols_card6 = [
+        {field:"Região"},
+        {field:"Municípios", editor:"input" },
+    ];
+    let correctValues_card6 = [
+        {Região:"Nordeste", Municípios:"1793"},
+        {Região:"Sudeste", Municípios:"1668"},
+        {Região:"Norte", Municípios:"450"},
     ];
 
     // ----- card 9 dt1 
@@ -430,10 +446,14 @@
       let typeChart = "line";
 
       // -- card 5 dt_card5
-      // dt1
       let refFieldCard5 = "Número";
-      let digitedCard5 = ""; //["Unidade", "Dezena", "Centena", "Milhar"];
-      let dynamicCard5= createDynamicTable("#dt_card5", tableData_card4, cols_card4);
+      let digitedCard5 = "";
+      let dynamicCard5= createDynamicTable("#dt_card5", tableData_card5, cols_card5);
+
+      // -- card 6 dt_card6
+      let refFieldCard6 = "Região";
+      let digitedCard6 = "Municípios";
+      let dynamicCard6= createDynamicTable("#dt_card6", tableData_card6, cols_card6);
 
       // -- card 9
       // dt1
@@ -465,18 +485,18 @@
           let row = cell.getRow();
           let field = col.getField();
           let digitedValue = row.getData()[field];
-          let rowNumber = getLine(row.getData()[refFieldCard5],refFieldCard5,correctValues_card4); // *** need to change
+          let rowNumber = getLine(row.getData()[refFieldCard5],refFieldCard5,correctValues_card5); // *** need to change
           let correctValue;
           // *** need to change
           switch (field) {
           case 'Unidade':
-              correctValue = correctValues_card4[rowNumber].Unidade;
+              correctValue = correctValues_card5[rowNumber].Unidade;
               break;
           case 'Dezena':
-              correctValue = correctValues_card4[rowNumber].Dezena;
+              correctValue = correctValues_card5[rowNumber].Dezena;
               break;
           case 'Centena':
-              correctValue = correctValues_card4[rowNumber].Centena;
+              correctValue = correctValues_card5[rowNumber].Centena;
               break;
           }            
           if (correctValue==digitedValue){
@@ -491,6 +511,27 @@
               }
           }
       });
+      dynamicCard6.on("cellEdited", function(cell){ 
+            let col = cell.getColumn();
+            let row = cell.getRow();
+            let field = col.getField();
+            let digitedValue = row.getData()[field];
+            let rowNumber = getLine(row.getData()[refFieldCard6],refFieldCard6, correctValues_card6);    // *** need to change
+            let correctValue;
+            if (field==digitedCard6)                                       // *** need to change
+                correctValue = correctValues_card6[rowNumber][digitedCard6]; // *** need to change            
+            if (correctValue==digitedValue){
+                cell.getElement().style.backgroundColor = "#adf7f6";
+            }
+            else {
+                // accept zero if field is empty
+                if ((correctValue=='')&&(digitedValue=='0'))
+                    cell.getElement().style.backgroundColor = "#adf7f6";
+                else {
+                    cell.getElement().style.backgroundColor = "";
+                }
+            }
+        });
       // ***** cellEdited must to be reviewed *****
       dynamicTable1.on("cellEdited", function(cell){ 
             let col = cell.getColumn();

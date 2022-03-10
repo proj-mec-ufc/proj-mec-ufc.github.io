@@ -15,6 +15,12 @@
     <script type="text/javascript" src="./assets/js/celestial.min.js"></script>
     <link rel="stylesheet" href="./assets/css/celestial.css">
     <script src="./assets/js/map.js"></script>
+    <!-- codigo do brauner -->
+    <!-- SVG js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.js" integrity="sha512-WXWhnFUmZx+snPw8v2JjWQ0cdLUCLxTXhyqiZb7G5pkZZEGPBgVSzILSpkPK9haxW75sX5znfF08rsVnf6BUlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Componentes HTML criados -->
+    <script defer src="https://cdn.jsdelivr.net/gh/proj-mec-ufc/bw-lib@latest/main.js"></script>
+    <script defer src="cards.js"></script>
 </head>
 
 <body>
@@ -32,6 +38,33 @@
     <div width="auto" height="300" class="divChart">
         <div id="celestial-map"></div>
     </div>
+
+    <!-- coisas do Brauner -->
+    <!-- card 8 -->
+    <w-s>
+        <h2>Tarefa 03</h2>
+
+        <p>A seguinte tabela mostra, em valores aproximados, a distância para Fortaleza (em quilômetros), as áreas (em quilômetros quadrados) e as populações (em número de habitantes) de alguns municípios do Ceará, de acordo com dados do IBGE:</p> 
+
+        <div id="cidades-table"></div>
+
+        <svg id="mapa"></svg>
+        
+        <ol>
+            <li><p>Indique como ficaria a área Quixeramobim escrita por extenso (em quilômetros quadrados):</p>
+                <p><w-m choices="Três mil e duzentos e setenta e cinco;Trezentos mil e duzentos e sete e cinco;Treze mil e vinte e sete e cinco"></w-m></p>
+            </li>
+            <li><p>Indique como ficaria a distância entre Caucaia e Fortaleza, escrita por extenso (em quilômetros):</p>
+                <p><w-m choices="Cento e sete;Dezessete;Um e sete"></w-m></p>
+            </li>
+        </ol>
+    </w-s>
+    <!-- card 9 -->
+    <w-s>
+        <p>Indique, na seguinte reta numérica, a posição aproximada dos pontos que correspondem às distâncias entre cada um dos quatro municípios e a capital, Fortaleza.</p> 
+        <svg id="regua"></svg>
+    </w-s>
+    
 </body>
 
 <script>

@@ -1,5 +1,7 @@
 // Elementos iteretivos
 iterativeSVG('../conteudos/assets/svg/regua.svg', '#regua', () => {
+    let chosen = SVG('#regua').text("Escolhidos:");
+    chosen.x(chosen.parent().width()/2);
     let group = SVG('g#marks');
     let balls = group.find('circle')
     let marks = group.children();
@@ -24,7 +26,14 @@ iterativeSVG('../conteudos/assets/svg/regua.svg', '#regua', () => {
         });
 
         r.on("mouseout", (el) => {
-            c.css("opacity",'0');              
+            if(r.selected != true){
+                c.css("opacity",'0'); 
+            }             
+        });
+
+        r.on("click", (el) => {
+            r.selected = true;
+            c.css("opacity",'1');              
         });
 
         /* let txt = text.clone();

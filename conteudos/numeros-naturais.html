@@ -1,649 +1,585 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initi-al-scale=1" />
-    <meta name="description" content="Site exemplo de conteúdo interativo" />
 
-    <title>N&uacute;meros Naturais</title>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initi-al-scale=1" />
+  <meta name="description" content="Site exemplo de conteúdo interativo" />
 
-    <link
-      rel="shortcut icon"
-      href="./assets/images/favicon.ico"
-      type="image/x-icon"
-    />
+  <title>N&uacute;meros Naturais</title>
 
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon" />
 
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="assets/css/materialize.css"
-      media="screen,projection"
-    />
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="assets/css/styles.css"
-      media="screen,projection"
-    />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
-    <!-- tabulator -->
-    <link
-      href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="./assets/css/dynamic_table.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+  <link type="text/css" rel="stylesheet" href="assets/css/materialize.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="assets/css/styles.css" media="screen,projection" />
 
-    <!-- chartist -->
-    <link href="./assets/css/chartist.css" rel="stylesheet" type="text/css" />
+  <!-- tabulator -->
+  <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet" />
+  <link href="./assets/css/dynamic_table.css" rel="stylesheet" type="text/css" />
 
-    <!-- celestial map -->
-    <link rel="stylesheet" href="./assets/css/celestial.css" />
+  <!-- chartist -->
+  <link href="./assets/css/chartist.css" rel="stylesheet" type="text/css" />
 
-    <!-- codigo do brauner -->
-    <!-- SVG js -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.js"
-      integrity="sha512-WXWhnFUmZx+snPw8v2JjWQ0cdLUCLxTXhyqiZb7G5pkZZEGPBgVSzILSpkPK9haxW75sX5znfF08rsVnf6BUlw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <!-- Componentes HTML criados -->
-    <script defer src="./assets/js/main.js"></script>
-    <script defer src="./assets/js/cards.js"></script>
-  </head>
+  <!-- celestial map -->
+  <link rel="stylesheet" href="./assets/css/celestial.css" />
 
-  <body>
-    <div class="container">
-      <div id="header" class="row white">
-        <div class="col s12">
-          <nav>
-            <div class="nav-wrapper white">
-              <a href="#" data-target="mobile-content" class="sidenav-trigger"
-                ><i class="material-icons">menu</i></a
-              >
-              <ul class="right hide-on-med-and-down">
-                <li>
-                  <a href="#">
-                    <i class="material-icons text-primary"
-                      >notifications_none</i
-                    >
-                  </a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><i class="material-icons text-bright-blue"
-                      >library_books</i
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="#"
-                    ><i class="material-icons text-salmon-pearl"
-                      >exit_to_app</i
-                    ></a
-                  >
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <ul class="sidenav" id="mobile-content">
+  <!-- codigo do brauner -->
+  <!-- SVG js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/3.1.2/svg.js"
+    integrity="sha512-WXWhnFUmZx+snPw8v2JjWQ0cdLUCLxTXhyqiZb7G5pkZZEGPBgVSzILSpkPK9haxW75sX5znfF08rsVnf6BUlw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Componentes HTML criados -->
+  <script defer src="./assets/js/main.js"></script>
+  <script defer src="./assets/js/cards.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="header" class="row white">
+      <div class="col s12">
+        <nav>
+          <div class="nav-wrapper white">
+            <a href="#" data-target="mobile-content" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li>
+                <a href="#">
+                  <i class="material-icons text-primary">notifications_none</i>
+                </a>
+              </li>
+              <li>
+                <a href="#"><i class="material-icons text-bright-blue">library_books</i></a>
+              </li>
+              <li>
+                <a href="#"><i class="material-icons text-salmon-pearl">exit_to_app</i></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <ul class="sidenav" id="mobile-content">
+          <li>
+            <a href="#"><i class="material-icons black-text">notifications</i></a>
+          </li>
+          <li>
+            <a href="#"><span class="black-text"> Wellington</span></a>
+          </li>
+          <li>
+            <a href="#"><i class="material-icons orange-text">exit_to_app</i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="main" class="row white flow-text">
+      <div id="aside" class="col s4">
+        <div id="logo-class" class="section center">
+          <div>
+            <img class="z-depth-1 responsive-img" width="220" height="150" src="./assets/images/content-icon.svg"
+              alt="uma imagem com os números um, dois, uma régua e uma calculadora" />
+          </div>
+
+          <div>
+            <a class="btn waves-effect waves-light white-text salmon-pearl" href="#">
+              Voltar</a>
+          </div>
+        </div>
+
+        <div id="menu-aside" class="section">
+          <ul class="collapsible">
             <li>
-              <a href="#"
-                ><i class="material-icons black-text">notifications</i></a
-              >
+              <div id="divOpMenu1" class="collapsible-header">
+                <i class="material-icons">menu_book</i>Sistema Posicional
+                Decimal
+              </div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
             </li>
             <li>
-              <a href="#"><span class="black-text"> Wellington</span></a>
+              <div id="divOpMenu2" class="collapsible-header">
+                <i class="material-icons">menu_book</i>Unidades
+              </div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
             </li>
             <li>
-              <a href="#"
-                ><i class="material-icons orange-text">exit_to_app</i></a
-              >
+              <div id="divOpMenu3" class="collapsible-header">
+                <i class="material-icons">menu_book</i>Algarismos Decimais
+              </div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+            <li>
+              <div id="divOpMenu4" class="collapsible-header">
+                <i class="material-icons">menu_book</i>Exemplos<i class="material-icons">
+                  chevron_right
+                </i>
+              </div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
+            </li>
+            <li>
+              <div id="divOpMenu5" class="collapsible-header">
+                <i class="material-icons">menu_book</i>Atividades<i class="material-icons">
+                  chevron_right
+                </i>
+              </div>
+              <div class="collapsible-body">
+                <span>Lorem ipsum dolor sit amet.</span>
+              </div>
             </li>
           </ul>
         </div>
       </div>
-
-      <div id="main" class="row white flow-text">
-        <div id="aside" class="col s4">
-          <div id="logo-class" class="section center">
-            <div>
-              <img
-                class="z-depth-1 responsive-img"
-                width="220"
-                height="150"
-                src="./assets/images/content-icon.svg"
-                alt="uma imagem com os números um, dois, uma régua e uma calculadora"
-              />
-            </div>
-
-            <div>
-              <a
-                class="btn waves-effect waves-light white-text salmon-pearl"
-                href="#"
-              >
-                Voltar</a
-              >
-            </div>
-          </div>
-
-          <div id="menu-aside" class="section">
-            <ul class="collapsible">
-              <li>
-                <div id="divOpMenu1" class="collapsible-header">
-                  <i class="material-icons">menu_book</i>Sistema Posicional
-                  Decimal
-                </div>
-                <div class="collapsible-body">
-                  <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-              </li>
-              <li>
-                <div id="divOpMenu2" class="collapsible-header">
-                  <i class="material-icons">menu_book</i>Unidades
-                </div>
-                <div class="collapsible-body">
-                  <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-              </li>
-              <li>
-                <div id="divOpMenu3" class="collapsible-header">
-                  <i class="material-icons">menu_book</i>Algarismos Decimais
-                </div>
-                <div class="collapsible-body">
-                  <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-              </li>
-              <li>
-                <div id="divOpMenu4" class="collapsible-header">
-                  <i class="material-icons">menu_book</i>Exemplos<i
-                    class="material-icons"
-                  >
-                    chevron_right
-                  </i>
-                </div>
-                <div class="collapsible-body">
-                  <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-              </li>
-              <li>
-                <div id="divOpMenu5" class="collapsible-header">
-                  <i class="material-icons">menu_book</i>Atividades<i
-                    class="material-icons"
-                  >
-                    chevron_right
-                  </i>
-                </div>
-                <div class="collapsible-body">
-                  <span>Lorem ipsum dolor sit amet.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div id="content" class="col s8">
-          <div id="main-content" class="row">
-            <div class="col s12 white">
-              <!-- CARD1  -->
-              <div id="card1" class="section pages flow-text">
-                <h3>Sistema Posicional Decimal</h3>
-                <p>
-                  Se você pensar por <strong>dois</strong> segundos, vai
-                  reconhecer <strong>milhões</strong> de situações em que os
-                  números são usados à sua volta. Mesmo na frase anterior,
-                  usamos números para falar de números!
-                </p>
-                <p>
-                  Por exemplo, todos nós, em algum momento da vida, ficamos
-                  maravilhados contando as estrelas no céu noturno.
-                </p>
-                <p>
-                  Clique e arraste as estrelas do <strong>mapa</strong> abaixo e
-                  deixo que o computador lhe mostrar algumas estrelas.
-                </p>
-                <div width="auto" height="auto" class="divChart">
-                  <div id="celestial-map"></div>
-                </div>
-
-                <p class="legend">Mapa do Céu</p>
-
-                <p>
-                  Agora tente contar o máximo de estrelas que estiveres vendo
-                  nesse “mapa do céu”. Tentou? É difícil, não é?
-                </p>
-
-                <p>
-                  Em muitas culturas, o uso de partes do corpo para contar
-                  determina a maneira como representamos quantidades e números.
-                  Uma forma de contar que nós humanos usamos para contar foi
-                  usando os dedos das mãos.
-                </p>
-
-                <p>
-                  Clique no vídeo abaixo e veja como se conta com as mãos um até
-                  dez.
-                </p>
-
-                <figure>
-                  <div class="video-container">
-                    <iframe
-                      width="auto"
-                      height="600"
-                      src="https://www.youtube.com/embed/9gxndvXzC6U"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
-                    ></iframe>
-                  </div>
-                  <figcaption class="legend">
-                    <cite>Vídeo: Aprendendo os números e a contar até 10</cite>
-                  </figcaption>
-                </figure>
-
-                <p>
-                  Mas o que aconteceria se precisássemos contar 20 (vinte)
-                  maçãs? Bem, poderíamos contar de cinco em cinco, usando as
-                  mãos, até chegarmos a vinte.
-                </p>
-
-                <p>
-                  Algumas pessoas que moram num pais chamado Papua Nova Guiné,
-                  utilizam pontos do corpo para poderem contar até 20 (vinte).
-                  Veja como eles fazem:
-                </p>
-
-                <figure>
-                  <img
-                    src="./assets/images/Captura_de_Tela_2022-02-23_as_15.36.01.png"
-                    alt=""
-                    class="pure-img-responsive"
-                  />
-                  <figcaption class="legend">
-                    Mapa do corpo humano com os pontos usados para contar.
-                  </figcaption>
-                </figure>
-
-                <p>E se precisássemos contar até mil?</p>
-
-                <div class="row">
-                  <div class="col s11">
-                    <blockquote>
-                      <div class="card very-light-grey">
-                        <div class="card-content">
-                          <p class="flow-text">
-                            Bem, nesse caso, precisaríamos usar mais do que as
-                            mãos. Foi assim que pudemos inventar os<strong>
-                              ALGARISMOS</strong
-                            >.
-                          </p>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
-                </div>
-
-                <p>
-                  Nós usamos os chamados Algarismos
-                  <a
-                    href=""
-                    class="tooltipped tooltips-decoration"
-                    data-position="<p> bottom"
-                    data-html="true"
-                    data-tooltip="Isso quer dizer que os algarismos que usamos foram inventados por pessoas da Índia e da região onde fica a Arábia Saudita</p> <img width='30%' class='very-light-grey' height='auto' src='./assets/images/Numeral_Systems_of_the_World.svg'/><p class='small white-text italic'>Números arábicos e indianos</p>"
-                    >Hindu-arábicos</a
-                  >
-                  ou
-                  <a
-                    href=""
-                    class="tooltipped tooltips-decoration"
-                    data-position="bottom"
-                    data-html="true"
-                    data-tooltip="Sistema posicional de base 10"
-                    >Decimais</a
-                  >. Na imagem a seguir, você pode ver a representação dos
-                  números Zero, Um, Dois, Três, Quatro, Cinco, Seis, Sete, Oito,
-                  Nove.
-                </p>
-
-                <img
-                  src="./assets/images/Screenshot_select-area_20220222153149.png"
-                  alt=""
-                  class="pure-img-responsive"
-                />
-
-                <div class="row">
-                  <div class="col s11">
-                    <blockquote>
-                      <div
-                        class="card-panel z-depth-2 deep-purple accent-1 white-text"
-                      >
-                        <div class="card-content">
-                          <p>
-                            Entre com os algarismos correspondentes aos números
-                            de maçãs apresentados a seguir.
-                          </p>
-                          <p>🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎</p>
-                          <div class="row">
-                            <div class="col s3 center">
-                              <w-m choices="2;5;4"></w-m>
-                            </div>
-                            <div class="col s1 center">
-                              <span class="black-text">+</span>
-                            </div>
-                            <div class="col s3 center">
-                              <w-m choices="3;2;4"></w-m>
-                            </div>
-                            <div class="col s1 center">
-                              <span class="black-text">=</span>
-                            </div>
-                            <div class="col s3 center">
-                              <w-m choices="5;6;7"></w-m>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
-                </div>
+      <div id="content" class="col s8">
+        <div id="main-content" class="row">
+          <div class="col s12 white">
+            <!-- CARD1  -->
+            <div id="card1" class="section pages flow-text">
+              <h3>Sistema Posicional Decimal</h3>
+              <p>
+                Se você pensar por <strong>dois</strong> segundos, vai
+                reconhecer <strong>milhões</strong> de situações em que os
+                números são usados à sua volta. Mesmo na frase anterior,
+                usamos números para falar de números!
+              </p>
+              <p>
+                Por exemplo, todos nós, em algum momento da vida, ficamos
+                maravilhados contando as estrelas no céu noturno.
+              </p>
+              <p>
+                Clique e arraste as estrelas do <strong>mapa</strong> abaixo e
+                deixo que o computador lhe mostrar algumas estrelas.
+              </p>
+              <div width="auto" height="auto" class="divChart">
+                <div id="celestial-map"></div>
               </div>
 
-              <!-- CARD2  -->
+              <p class="legend">Mapa do Céu</p>
 
-              <div id="card2" class="section pages flow-text">
-                <h3>Unidades</h3>
-                <p>
-                  Cada algarismo representa um determinado número de
-                  u<strong>nidades</strong>. Por exemplo,
-                  <strong>1</strong> representa <strong>uma</strong> unidade. Já
-                  o <strong>9</strong> representa
-                  <w-m choices="nove;oito;uma"></w-m> unidades.
-                </p>
-                <p>
-                  Uma <strong>unidade</strong> pode ser qualquer coisa, como uma
-                  maçã, uma laranja, uma estrela ou um cachorro.
-                </p>
-              </div>
+              <p>
+                Agora tente contar o máximo de estrelas que estiveres vendo
+                nesse “mapa do céu”. Tentou? É difícil, não é?
+              </p>
 
-              <!-- CARD3  -->
-              <div id="card3" class="section pages flow-text">
-                <h3>Algarismos Decimais</h3>
-                <p>
-                  Você já deve ter visto esses algarismos em vários cantos de
-                  sua casa ou em outros locais.
-                </p>
+              <p>
+                Em muitas culturas, o uso de partes do corpo para contar
+                determina a maneira como representamos quantidades e números.
+                Uma forma de contar que nós humanos usamos para contar foi
+                usando os dedos das mãos.
+              </p>
 
-                <figure>
-                  <div class="carousel">
-                    <a class="carousel-item" href="#two!"
-                      ><img src="./assets/images/carrossel-1.png"
-                    /></a>
-                    <a class="carousel-item" href="#three!"
-                      ><img src="./assets/images/carrossel-2.webp"
-                    /></a>
-                    <a class="carousel-item" href="#four!"
-                      ><img src="./assets/images/carrossel-3.png"
-                    /></a>
-                  </div>
-                  <figcaption class="legend">
-                    Exemplos de locais que usam algarismos decimais
-                  </figcaption>
-                </figure>
+              <p>
+                Clique no vídeo abaixo e veja como se conta com as mãos um até
+                dez.
+              </p>
 
-                <p>
-                  E como podemos usar esses algarismos hindu-arábicos para
-                  contar quantidades maiores que 9 (nove)? Os seres humanos
-                  tiveram uma ideia realmente genial para esse propósito.
-                </p>
-                <div class="row">
-                  <div class="col s11">
-                    <blockquote>
-                      <div class="card very-light-grey">
-                        <div class="card-content">
-                          <p class="flow-text">
-                            Combinar esses dez algarismos para expressar as
-                            diferentes quantidades, mais ou menos como
-                            combinamos as letras para formar as palavras de uma
-                            língua.
-                          </p>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
+              <figure>
+                <div class="video-container">
+                  <iframe width="auto" height="600" src="https://www.youtube.com/embed/9gxndvXzC6U"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
                 </div>
+                <figcaption class="legend">
+                  <cite>Vídeo: Aprendendo os números e a contar até 10</cite>
+                </figcaption>
+              </figure>
 
-                <p>Por exemplo, o número 12 (doze) significa:</p>
-                <p>12 = 10 + 2</p>
-                <p>
-                  onde 10 = <w-m choices="5;3;9"></w-m>+ 5 unidades. Da mesma
-                  forma:
-                </p>
-                <p>
-                  12 = <w-m choices="5;6;7"></w-m> +
-                  <w-m choices="5;4;3"></w-m> + 1 + 1.
-                </p>
+              <p>
+                Mas o que aconteceria se precisássemos contar 20 (vinte)
+                maçãs? Bem, poderíamos contar de cinco em cinco, usando as
+                mãos, até chegarmos a vinte.
+              </p>
 
-                <p>
-                  Observe que 12 é composto de uma dezena (dez unidades), mais 2
-                  unidades. O algarismo 1, no número 12, indica
-                  <strong>uma dezena</strong> e não
-                  <strong>uma unidade</strong>.
-                </p>
+              <p>
+                Algumas pessoas que moram num pais chamado Papua Nova Guiné,
+                utilizam pontos do corpo para poderem contar até 20 (vinte).
+                Veja como eles fazem:
+              </p>
 
-                <div class="row">
-                  <div class="col s11">
-                    <blockquote>
-                      <div class="card very-light-grey">
-                        <div class="card-content">
-                          <p>
-                            Você deve ter visto, no texto acima, que quando se
-                            quer mostrar que um numero vai ser
-                            <strong>SOMADO</strong> a outro se usa o sinal
-                            <strong>+</strong>. Pois é a <strong>Soma</strong> é
-                            quando você acrescenta uma determinada quantidade de
-                            unidades de um número a outro número.
-                          </p>
-                          <p>Por exemplo:</p>
-                          <p>2 + 3 = 5, ou ainda,</p>
-                          <p>🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎</p>
-                          <p>
-                            Veremos mais sobre o que seja a Soma em outra parte
-                            de nosso material.
-                          </p>
-                        </div>
-                      </div>
-                    </blockquote>
-                  </div>
-                </div>
-              </div>
+              <figure>
+                <img src="./assets/images/Captura_de_Tela_2022-02-23_as_15.36.01.png" alt=""
+                  class="pure-img-responsive" />
+                <figcaption class="legend">
+                  Mapa do corpo humano com os pontos usados para contar.
+                </figcaption>
+              </figure>
 
-              <!-- CARD4 |Heloise| -->
-              <div id="card4" class="section pages flow-text">
-                <h3>Algarismos Decimais - Exemplos</h3>
-                <p>No número 22, temos:</p>
-                <p>22 = 20 + 2</p>
-                <p>
-                  Ou seja, 22 = 10 + 10 + 2. Logo, o primeiro algarismo 2 à
-                  esquerda indica <strong>2</strong> dezenas, ou seja,
-                  <strong>10 +10</strong>, enquanto o segundo algarismo
-                  <strong>2</strong> indica <strong>2</strong> unidades.
-                </p>
-                <p>
-                  Note que a <strong>posição</strong> dos algarismos altera seu
-                  valor no número. Por exemplo, o algarismo 2 em 20 corresponde
-                  a <strong>duas dezenas</strong>, ou seja, a 10+10. Já no
-                  número 200, o algarismo 2 corresponde a
-                  <strong>2 centenas</strong>, ou seja, a
-                  <strong>2 vezes 100 unidades</strong>. Sendo assim,
-                </p>
-                <p>
-                  200 = 100 + 10 = 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10
-                  +10+ 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10+10.
-                </p>
-                <p>
-                  Observe que os algarismos <strong>0</strong> nesses dois
-                  números têm um papel especial. Por exemplo, o algarismo
-                  <strong>0</strong> marca a posição das unidades no número 20;
-                  já no número 200, o <strong>0</strong>0 marca as posições das
-                  unidades e dezenas. Vejamos o caso do número 200 (duzentos).
-                  Temos:
-                </p>
+              <p>E se precisássemos contar até mil?</p>
 
-                <!-- tabela1card4 -->
-                <table class="striped responsive-table">
-                  <thead>
-                    <tr>
-                      <th>Número</th>
-                      <th>Centenas</th>
-                      <th>Dezenas</th>
-                      <th>Unidades</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr>
-                      <td>200</td>
-                      <td>2</td>
-                      <td>0</td>
-                      <td>0</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <p>
-                  Para esclarecer um pouco mais essas ideias, considere os
-                  números 202 (duzentos e dois) e 220 (duzentos e vinte). Temos:
-                </p>
-                <p>
-                  202 = 200 + 2 = <w-m choices="2;1;3"></w-m> centenas e
-                  <w-m choices="2;1;3"></w-m> unidades
-                </p>
-                <p>
-                  220 = 200 + 20 = <w-m choices="2;1;3"></w-m> centenas e
-                  <w-m choices="2;6;7"></w-m> dezenas
-                </p>
-                <p>
-                  Essas decomposições dos números 202 e 220 podem ser
-                  representadas na seguinte tabela:
-                </p>
-
-                <!-- tabela2card4 -->
-                <table class="striped responsive-table">
-                  <thead>
-                    <tr>
-                      <th>Número</th>
-                      <th>Centenas</th>
-                      <th>Dezenas</th>
-                      <th>Unidades</th>
-                    </tr>
-                  </thead>
-
-                  <tbody>
-                    <tr>
-                      <td>202</td>
-                      <td>2</td>
-                      <td>0</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>220</td>
-                      <td>2</td>
-                      <td>2</td>
-                      <td>0</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- CARD5 |Patricia| -->
-              <div id="card5" class="section pages flow-text">
-                <div id="dt_card5" class="dynamic_table" graph="off"></div>
-              </div>
-              <!-- CARD6  -->
-              <div id="card6" class="section pages flow-text">
-                <div id="dt_card6" class="dynamic_table" graph="off"></div>
-              </div>
-              <!-- CARD7  -->
-              <div id="card7" class="section pages flow-text"></div>
-              <!-- CARD8 |Heloise| -->
-              <div id="card8" class="section pages flow-text">
-                <div class="card very-light-grey">
-                  <div class="card-content">
-                    <div class="row">
-                      <div class="col s1">
-                        <p class="icon">✍🏽</p>
-                      </div>
-                      <div class="col s11">
-                        <p><strong>Tarefa 03</strong></p>
+              <div class="row">
+                <div class="col s11">
+                  <blockquote>
+                    <div class="card very-light-grey">
+                      <div class="card-content">
                         <p class="flow-text">
-                          A seguinte tabela mostra, em valores aproximados, a
-                          distância para Belo Horizonte (em quilômetros), as
-                          áreas (em quilômetros quadrados) e as populações (em
-                          número de habitantes) de alguns municípios de Minas
-                          Gerais, de acordo com dados do IBGE:
+                          Bem, nesse caso, precisaríamos usar mais do que as
+                          mãos. Foi assim que pudemos inventar os<strong>
+                            ALGARISMOS</strong>.
                         </p>
                       </div>
                     </div>
+                  </blockquote>
+                </div>
+              </div>
+
+              <p>
+                Nós usamos os chamados Algarismos
+                <a href="" class="tooltipped tooltips-decoration" data-position="<p> bottom" data-html="true"
+                  data-tooltip="Isso quer dizer que os algarismos que usamos foram inventados por pessoas da Índia e da região onde fica a Arábia Saudita</p> <img width='30%' class='very-light-grey' height='auto' src='./assets/images/Numeral_Systems_of_the_World.svg'/><p class='small white-text italic'>Números arábicos e indianos</p>">Hindu-arábicos</a>
+                ou
+                <a href="" class="tooltipped tooltips-decoration" data-position="bottom" data-html="true"
+                  data-tooltip="Sistema posicional de base 10">Decimais</a>. Na imagem a seguir, você pode ver a
+                representação dos
+                números Zero, Um, Dois, Três, Quatro, Cinco, Seis, Sete, Oito,
+                Nove.
+              </p>
+
+              <img src="./assets/images/Screenshot_select-area_20220222153149.png" alt="" class="pure-img-responsive" />
+
+              <div class="row">
+                <div class="col s11">
+                  <blockquote>
+                    <div class="card-panel z-depth-2 deep-purple accent-1 white-text">
+                      <div class="card-content">
+                        <p>
+                          Entre com os algarismos correspondentes aos números
+                          de maçãs apresentados a seguir.
+                        </p>
+                        <p>🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎</p>
+                        <div class="row">
+                          <div class="col s3 center">
+                            <w-m choices="2;5;4"></w-m>
+                          </div>
+                          <div class="col s1 center">
+                            <span class="black-text">+</span>
+                          </div>
+                          <div class="col s3 center">
+                            <w-m choices="3;2;4"></w-m>
+                          </div>
+                          <div class="col s1 center">
+                            <span class="black-text">=</span>
+                          </div>
+                          <div class="col s3 center">
+                            <w-m choices="5;6;7"></w-m>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD2  -->
+
+            <div id="card2" class="section pages flow-text">
+              <h3>Unidades</h3>
+              <p>
+                Cada algarismo representa um determinado número de
+                u<strong>nidades</strong>. Por exemplo,
+                <strong>1</strong> representa <strong>uma</strong> unidade. Já
+                o <strong>9</strong> representa
+                <w-m choices="nove;oito;uma"></w-m> unidades.
+              </p>
+              <p>
+                Uma <strong>unidade</strong> pode ser qualquer coisa, como uma
+                maçã, uma laranja, uma estrela ou um cachorro.
+              </p>
+            </div>
+
+            <!-- CARD3  -->
+            <div id="card3" class="section pages flow-text">
+              <h3>Algarismos Decimais</h3>
+              <p>
+                Você já deve ter visto esses algarismos em vários cantos de
+                sua casa ou em outros locais.
+              </p>
+
+              <figure>
+                <div class="carousel">
+                  <a class="carousel-item" href="#two!"><img src="./assets/images/carrossel-1.png" /></a>
+                  <a class="carousel-item" href="#three!"><img src="./assets/images/carrossel-2.webp" /></a>
+                  <a class="carousel-item" href="#four!"><img src="./assets/images/carrossel-3.png" /></a>
+                </div>
+                <figcaption class="legend">
+                  Exemplos de locais que usam algarismos decimais
+                </figcaption>
+              </figure>
+
+              <p>
+                E como podemos usar esses algarismos hindu-arábicos para
+                contar quantidades maiores que 9 (nove)? Os seres humanos
+                tiveram uma ideia realmente genial para esse propósito.
+              </p>
+              <div class="row">
+                <div class="col s11">
+                  <blockquote>
+                    <div class="card very-light-grey">
+                      <div class="card-content">
+                        <p class="flow-text">
+                          Combinar esses dez algarismos para expressar as
+                          diferentes quantidades, mais ou menos como
+                          combinamos as letras para formar as palavras de uma
+                          língua.
+                        </p>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+
+              <p>Por exemplo, o número 12 (doze) significa:</p>
+              <p>12 = 10 + 2</p>
+              <p>
+                onde 10 = <w-m choices="5;3;9"></w-m>+ 5 unidades. Da mesma
+                forma:
+              </p>
+              <p>
+                12 = <w-m choices="5;6;7"></w-m> +
+                <w-m choices="5;4;3"></w-m> + 1 + 1.
+              </p>
+
+              <p>
+                Observe que 12 é composto de uma dezena (dez unidades), mais 2
+                unidades. O algarismo 1, no número 12, indica
+                <strong>uma dezena</strong> e não
+                <strong>uma unidade</strong>.
+              </p>
+
+              <div class="row">
+                <div class="col s11">
+                  <blockquote>
+                    <div class="card very-light-grey">
+                      <div class="card-content">
+                        <p>
+                          Você deve ter visto, no texto acima, que quando se
+                          quer mostrar que um numero vai ser
+                          <strong>SOMADO</strong> a outro se usa o sinal
+                          <strong>+</strong>. Pois é a <strong>Soma</strong> é
+                          quando você acrescenta uma determinada quantidade de
+                          unidades de um número a outro número.
+                        </p>
+                        <p>Por exemplo:</p>
+                        <p>2 + 3 = 5, ou ainda,</p>
+                        <p>🍎🍎 + 🍎🍎🍎 = 🍎🍎🍎🍎🍎</p>
+                        <p>
+                          Veremos mais sobre o que seja a Soma em outra parte
+                          de nosso material.
+                        </p>
+                      </div>
+                    </div>
+                  </blockquote>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD4 |Heloise| -->
+            <div id="card4" class="section pages flow-text">
+              <h3>Algarismos Decimais - Exemplos</h3>
+              <p>No número 22, temos:</p>
+              <p>22 = 20 + 2</p>
+              <p>
+                Ou seja, 22 = 10 + 10 + 2. Logo, o primeiro algarismo 2 à
+                esquerda indica <strong>2</strong> dezenas, ou seja,
+                <strong>10 +10</strong>, enquanto o segundo algarismo
+                <strong>2</strong> indica <strong>2</strong> unidades.
+              </p>
+              <p>
+                Note que a <strong>posição</strong> dos algarismos altera seu
+                valor no número. Por exemplo, o algarismo 2 em 20 corresponde
+                a <strong>duas dezenas</strong>, ou seja, a 10+10. Já no
+                número 200, o algarismo 2 corresponde a
+                <strong>2 centenas</strong>, ou seja, a
+                <strong>2 vezes 100 unidades</strong>. Sendo assim,
+              </p>
+              <p>
+                200 = 100 + 10 = 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10
+                +10+ 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10 + 10+10.
+              </p>
+              <p>
+                Observe que os algarismos <strong>0</strong> nesses dois
+                números têm um papel especial. Por exemplo, o algarismo
+                <strong>0</strong> marca a posição das unidades no número 20;
+                já no número 200, o <strong>0</strong>0 marca as posições das
+                unidades e dezenas. Vejamos o caso do número 200 (duzentos).
+                Temos:
+              </p>
+
+              <!-- tabela1card4 -->
+              <table class="striped responsive-table">
+                <thead>
+                  <tr>
+                    <th>Número</th>
+                    <th>Centenas</th>
+                    <th>Dezenas</th>
+                    <th>Unidades</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>200</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>
+                Para esclarecer um pouco mais essas ideias, considere os
+                números 202 (duzentos e dois) e 220 (duzentos e vinte). Temos:
+              </p>
+              <p>
+                202 = 200 + 2 = <w-m choices="2;1;3"></w-m> centenas e
+                <w-m choices="2;1;3"></w-m> unidades
+              </p>
+              <p>
+                220 = 200 + 20 = <w-m choices="2;1;3"></w-m> centenas e
+                <w-m choices="2;6;7"></w-m> dezenas
+              </p>
+              <p>
+                Essas decomposições dos números 202 e 220 podem ser
+                representadas na seguinte tabela:
+              </p>
+
+              <!-- tabela2card4 -->
+              <table class="striped responsive-table">
+                <thead>
+                  <tr>
+                    <th>Número</th>
+                    <th>Centenas</th>
+                    <th>Dezenas</th>
+                    <th>Unidades</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>202</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>220</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>0</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+            <!-- CARD5 |Patricia| -->
+            <div id="card5" class="section pages flow-text">
+              <div id="dt_card5" class="dynamic_table" graph="off"></div>
+            </div>
+            <!-- CARD6  -->
+            <div id="card6" class="section pages flow-text">
+              <div id="dt_card6" class="dynamic_table" graph="off"></div>
+            </div>
+            <!-- CARD7  -->
+            <div id="card7" class="section pages flow-text">
+              <div id="dt_card7" class="dynamic_table" graph="off"></div>
+              <div>
+                Dica para preencher cada forma:<br />
+                1: Usar somente Centenas e Unidades<br />
+                2: Usar somente Dezenas e Unidades<br />
+                3: Usar Centenas, Dezenas e Unidades
+              </div>
+            </div>
+            <!-- CARD8 |Heloise| -->
+            <div id="card8" class="section pages flow-text">
+
+
+              <div class="card very-light-grey">
+                <div class="card-content">
+                  <div class="row">
+                    <div class="col s1">
+                      <p class="icon">✍🏽</p>
+                    </div>
+                    <div class="col s11">
+                      <p><strong>Tarefa 03</strong></p>
+                      <p class="flow-text">
+                        A seguinte tabela mostra, em valores aproximados, a
+                        distância para Belo Horizonte (em quilômetros), as
+                        áreas (em quilômetros quadrados) e as populações (em
+                        número de habitantes) de alguns municípios de Minas
+                        Gerais, de acordo com dados do IBGE:
+                      </p>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <!-- tabela1card8 -->
-                <table class="striped responsive-table">
-                  <thead>
-                    <tr>
-                      <th>Município</th>
-                      <th>
-                        Distância a Fortaleza
-                        <h5>(em quilômetros)</h5>
-                      </th>
-                      <th>
-                        Área
-                        <h5>(em quilômetros quadrados)</h5>
-                      </th>
-                      <th>
-                        População
-                        <h5>(número de habitantes em 2021)</h5>
-                      </th>
-                    </tr>
-                  </thead>
+              <!-- tabela1card8 -->
+              <table class="striped responsive-table">
+                <thead>
+                  <tr>
+                    <th>Município</th>
+                    <th>Distância a Fortaleza<h5>(em quilômetros)</h5>
+                    </th>
+                    <th>Área <h5>(em quilômetros quadrados)</h5>
+                    </th>
+                    <th>População <h5>(número de habitantes em 2021)</h5>
+                    </th>
+                  </tr>
+                </thead>
 
-                  <tbody>
-                    <tr>
-                      <td>Caucaia</td>
-                      <td>17</td>
-                      <td>1228</td>
-                      <td>361400</td>
-                    </tr>
-                    <tr>
-                      <td>Sobral</td>
-                      <td>240</td>
-                      <td>2068</td>
-                      <td>210711</td>
-                    </tr>
-                    <tr>
-                      <td>Quixeramobim</td>
-                      <td>203</td>
-                      <td>3275</td>
-                      <td>85565</td>
-                    </tr>
-                    <tr>
-                      <td>Maranguape</td>
-                      <td>27</td>
-                      <td>591</td>
-                      <td>126486</td>
-                    </tr>
-                  </tbody>
-                </table>
+                <tbody>
+                  <tr>
+                    <td>Caucaia</td>
+                    <td>17</td>
+                    <td>1228</td>
+                    <td>361400</td>
+                  </tr>
+                  <tr>
+                    <td>Sobral</td>
+                    <td>240</td>
+                    <td>2068</td>
+                    <td>210711</td>
+                  </tr>
+                  <tr>
+                    <td>Quixeramobim</td>
+                    <td>203</td>
+                    <td>3276</td>
+                    <td>85565</td>
+                  </tr>
+                  <tr>
+                    <td>Maranguape</td>
+                    <td>27</td>
+                    <td>591</td>
+                    <td>126486</td>
+                  </tr>
+                </tbody>
+              </table>
 
-                <p>"Mapa do Ceará.png"</p>
+              <p>"Mapa do Ceará.png"</p>
+
+            </div>
+            <!-- CARD9  -->
+            <div id="card9" class="section pages flow-text">
+              <div id="dt1" class="dynamic_table" graph="off"></div>
+              <div>
+                Dica para preencher cada forma:<br />
+                1: Usar somente Centenas, Dezenas e Unidades<br />
+                2: Usar somente Milhar, Dezenas e Unidades<br />
+                3: Usar Milhar, Centenas, Dezenas e Unidades
+              </div>
+            </div>
+            <!-- CARD10  -->
+            <div id="card10" class="section pages flow-text">
+              <div>
+                <div id="dt2" class="dynamic_table" graph="on"></div>
+                <img id="showLine" src="./assets/images/linechart.svg" class="imgButton" />
+                <img id="showBar" src="./assets/images/barchart.svg" class="imgButton" />
               </div>
               <!-- CARD9  -->
               <div id="card9" class="section pages card flow-text">
@@ -653,16 +589,8 @@
               <div id="card10" class="section pages flow-text">
                 <div>
                   <div id="dt2" class="dynamic_table" graph="on"></div>
-                  <img
-                    id="showLine"
-                    src="./assets/images/linechart.svg"
-                    class="imgButton"
-                  />
-                  <img
-                    id="showBar"
-                    src="./assets/images/barchart.svg"
-                    class="imgButton"
-                  />
+                  <img id="showLine" src="./assets/images/linechart.svg" class="imgButton" />
+                  <img id="showBar" src="./assets/images/barchart.svg" class="imgButton" />
                 </div>
                 <div class="divChart">
                   <div class="ct-chart ct-golden-section" id="chart2"></div>
@@ -706,19 +634,13 @@
     <script src="./assets/js/menu.js" type="text/javascript"></script>
 
     <!-- Materialize JS Library -->
-    <script
-      type="text/javascript"
-      src="./assets/js/materialize.min.js"
-    ></script>
+    <script type="text/javascript" src="./assets/js/materialize.min.js"></script>
 
     <!-- Content Js Library -->
     <script src="./assets/js/script.js"></script>
 
     <!-- tabulator -->
-    <script
-      type="text/javascript"
-      src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"
-    ></script>
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
     <script src="./assets/js/dynamic_table.js" type="text/javascript"></script>
 
     <!-- chartist -->
@@ -726,85 +648,257 @@
 
     <!-- celestial map -->
     <script type="text/javascript" src="./assets/js/d3.v3.min.js"></script>
-    <script
-      type="text/javascript"
-      src="./assets/js/d3.geo.projection.v0.min.js"
-    ></script>
+    <script type="text/javascript" src="./assets/js/d3.geo.projection.v0.min.js"></script>
     <script type="text/javascript" src="./assets/js/celestial.min.js"></script>
     <script src="./assets/js/map.js"></script>
 
     <script>
       let correct_color = "#adf7f6";
-      // ----- card 5
-      let tableData_card5 = [
-        { Número: "776", Centena: "", Dezena: "", Unidade: "" },
+      // ----- card 5 
+      let tableData_card5 = [{
+        Número: "776",
+        Centena: "",
+        Dezena: "",
+        Unidade: ""
+      }, ];
+      let cols_card5 = [{
+          field: "Número"
+        },
+        {
+          field: "Centena",
+          editor: "input"
+        },
+        {
+          field: "Dezena",
+          editor: "input"
+        },
+        {
+          field: "Unidade",
+          editor: "input"
+        },
       ];
-      let cols_card5 = [
-        { field: "Número" },
-        { field: "Centena", editor: "input" },
-        { field: "Dezena", editor: "input" },
-        { field: "Unidade", editor: "input" },
-      ];
-      let correctValues_card5 = [
-        { Número: "776", Centena: "7", Dezena: "7", Unidade: "6" },
-      ];
+      let correctValues_card5 = [{
+        Número: "776",
+        Centena: "7",
+        Dezena: "7",
+        Unidade: "6"
+      }, ];
 
       // ----- card 6
-      let tableData_card6 = [
-        { Região: "Nordeste", Municípios: "" },
-        { Região: "Sudeste", Municípios: "" },
-        { Região: "Norte", Municípios: "" },
-      ];
-      let cols_card6 = [
-        { field: "Região" },
-        { field: "Municípios", editor: "input" },
-      ];
-      let correctValues_card6 = [
-        { Região: "Nordeste", Municípios: "1793" },
-        { Região: "Sudeste", Municípios: "1668" },
-        { Região: "Norte", Municípios: "450" },
-      ];
-
-      // ----- card 9 dt1
-      let tableData_dt1 = [
-        { Número: "235", Milhar: "", Centena: "", Dezena: "", Unidade: "" },
-        { Número: "1647", Milhar: "", Centena: "", Dezena: "", Unidade: "" },
-        { Número: "81", Milhar: "", Centena: "", Dezena: "", Unidade: "" },
-      ];
-      let cols_dt1 = [
-        { field: "Número" },
-        { field: "Milhar", editor: "input" },
-        { field: "Centena", editor: "input" },
-        { field: "Dezena", editor: "input" },
-        { field: "Unidade", editor: "input" },
-      ];
-      let correctValues_dt1 = [
-        { Número: "235", Milhar: "0", Centena: "2", Dezena: "3", Unidade: "5" },
-        {
-          Número: "1647",
-          Milhar: "1",
-          Centena: "6",
-          Dezena: "4",
-          Unidade: "7",
+      let tableData_card6 = [{
+          Região: "Nordeste",
+          Municípios: ""
         },
-        { Número: "81", Milhar: "0", Centena: "0", Dezena: "8", Unidade: "1" },
+        {
+          Região: "Sudeste",
+          Municípios: ""
+        },
+        {
+          Região: "Norte",
+          Municípios: ""
+        },
+      ];
+      let cols_card6 = [{
+          field: "Região"
+        },
+        {
+          field: "Municípios",
+          editor: "input"
+        },
+      ];
+      let correctValues_card6 = [{
+          Região: "Nordeste",
+          Municípios: "1793"
+        },
+        {
+          Região: "Sudeste",
+          Municípios: "1668"
+        },
+        {
+          Região: "Norte",
+          Municípios: "450"
+        },
+      ];
+      // ----- card 7 
+      let tableData_card7 = [{
+          Forma: "1",
+          Número: "259",
+          Centena: "",
+          Dezena: "",
+          Unidade: ""
+        },
+        {
+          Forma: "2",
+          Número: "259",
+          Centena: "",
+          Dezena: "",
+          Unidade: ""
+        },
+        {
+          Forma: "3",
+          Número: "259",
+          Centena: "",
+          Dezena: "",
+          Unidade: ""
+        },
+      ];
+      let cols_card7 = [{
+          field: "Forma"
+        },
+        {
+          field: "Número"
+        },
+        {
+          field: "Centena",
+          editor: "input"
+        },
+        {
+          field: "Dezena",
+          editor: "input"
+        },
+        {
+          field: "Unidade",
+          editor: "input"
+        },
+      ];
+      let correctValues_card7 = [{
+          Forma: "1",
+          Número: "259",
+          Centena: "2",
+          Dezena: "0",
+          Unidade: "59"
+        },
+        {
+          Forma: "2",
+          Número: "259",
+          Centena: "0",
+          Dezena: "25",
+          Unidade: "9"
+        },
+        {
+          Forma: "3",
+          Número: "259",
+          Centena: "2",
+          Dezena: "5",
+          Unidade: "9"
+        },
+      ];
+      // ----- card 9 dt1 
+      let tableData_dt1 = [{
+          Forma: "1",
+          Número: "210711",
+          Milhar: "",
+          Centena: "",
+          Dezena: "",
+          Unidade: ""
+        },
+        {
+          Forma: "2",
+          Número: "210711",
+          Milhar: "",
+          Centena: "",
+          Dezena: "",
+          Unidade: ""
+        },
+        {
+          Forma: "3",
+          Número: "210711",
+          Milhar: "",
+          Centena: "",
+          Dezena: "",
+          Unidade: ""
+        },
+      ];
+      let cols_dt1 = [{
+          field: "Forma"
+        },
+        {
+          field: "Número"
+        },
+        {
+          field: "Milhar",
+          editor: "input"
+        },
+        {
+          field: "Centena",
+          editor: "input"
+        },
+        {
+          field: "Dezena",
+          editor: "input"
+        },
+        {
+          field: "Unidade",
+          editor: "input"
+        },
+      ];
+      let correctValues_dt1 = [{
+          Forma: "1",
+          Número: "210711",
+          Milhar: "0",
+          Centena: "2107",
+          Dezena: "1",
+          Unidade: "1"
+        },
+        {
+          Forma: "2",
+          Número: "210711",
+          Milhar: "210",
+          Centena: "0",
+          Dezena: "71",
+          Unidade: "1"
+        },
+        {
+          Forma: "3",
+          Número: "210711",
+          Milhar: "210",
+          Centena: "7",
+          Dezena: "1",
+          Unidade: "1"
+        },
       ];
       // ----- card 10 dt2
-      let tableData_dt2 = [
-        { Município: "Caucaia", Distância: "" },
-        { Município: "Sobral", Distância: "" },
-        { Município: "Quixeramobim", Distância: "" },
-        { Município: "Maranguape", Distância: "" },
+      let tableData_dt2 = [{
+          Município: "Caucaia",
+          Área: ""
+        },
+        {
+          Município: "Sobral",
+          Área: ""
+        },
+        {
+          Município: "Quixeramobim",
+          Área: ""
+        },
+        {
+          Município: "Iguatu",
+          Área: ""
+        },
       ];
-      let cols_dt2 = [
-        { field: "Município" },
-        { field: "Distância", editor: "input" },
+      let cols_dt2 = [{
+          field: "Município"
+        },
+        {
+          field: "Área",
+          editor: "input"
+        },
       ];
-      let correctValues_dt2 = [
-        { Município: "Caucaia", Distância: "17" },
-        { Município: "Sobral", Distância: "240" },
-        { Município: "Quixeramobim", Distância: "203" },
-        { Município: "Maranguape", Distância: "27" },
+      let correctValues_dt2 = [{
+          Município: "Caucaia",
+          Área: "1228"
+        },
+        {
+          Município: "Sobral",
+          Área: "2068"
+        },
+        {
+          Município: "Quixeramobim",
+          Área: "3276"
+        },
+        {
+          Município: "Iguatu",
+          Área: "1029"
+        },
       ];
 
       // -------------------------------------------
@@ -813,31 +907,21 @@
         let correct_color = "#adf7f6";
 
         // -- menu
-        document
-          .getElementById("divOpMenu1")
-          .addEventListener("click", function (e) {
-            show("card1");
-          });
-        document
-          .getElementById("divOpMenu2")
-          .addEventListener("click", function (e) {
-            show("card2");
-          });
-        document
-          .getElementById("divOpMenu3")
-          .addEventListener("click", function (e) {
-            show("card3");
-          });
-        document
-          .getElementById("divOpMenu4")
-          .addEventListener("click", function (e) {
-            show("card4");
-          });
-        document
-          .getElementById("divOpMenu5")
-          .addEventListener("click", function (e) {
-            show("card5");
-          });
+        document.getElementById('divOpMenu1').addEventListener('click', function (e) {
+          show('card1');
+        });
+        document.getElementById('divOpMenu2').addEventListener('click', function (e) {
+          show('card2');
+        });
+        document.getElementById('divOpMenu3').addEventListener('click', function (e) {
+          show('card3');
+        });
+        document.getElementById('divOpMenu4').addEventListener('click', function (e) {
+          show('card4');
+        });
+        document.getElementById('divOpMenu5').addEventListener('click', function (e) {
+          show('card5');
+        });
 
         // -- card 1
         drawMap();
@@ -848,66 +932,42 @@
         // -- card 5 dt_card5
         let refFieldCard5 = "Número";
         let digitedCard5 = "";
-        let dynamicCard5 = createDynamicTable(
-          "#dt_card5",
-          tableData_card5,
-          cols_card5
-        );
+        let dynamicCard5 = createDynamicTable("#dt_card5", tableData_card5, cols_card5);
 
         // -- card 6 dt_card6
         let refFieldCard6 = "Região";
         let digitedCard6 = "Municípios";
-        let dynamicCard6 = createDynamicTable(
-          "#dt_card6",
-          tableData_card6,
-          cols_card6
-        );
+        let dynamicCard6 = createDynamicTable("#dt_card6", tableData_card6, cols_card6);
+
+        // -- card 7 dt_card7
+        let refFieldCard7 = "Forma";
+        let digitedCard7 = ""; //["Unidade", "Dezena", "Centena"];
+        let dynamicCard7 = createDynamicTable("#dt_card7", tableData_card7, cols_card7);
 
         // -- card 9
         // dt1
-        let refField1 = "Número";
+        let refField1 = "Forma";
         let digitedField1 = ""; //["Unidade", "Dezena", "Centena", "Milhar"];
         let dynamicTable1 = createDynamicTable("#dt1", tableData_dt1, cols_dt1);
+
         // -- card 10
         // dt2
         let refField2 = "Município";
-        let digitedField2 = "Distância";
+        let digitedField2 = "Área";
         let dynamicTable2 = createDynamicTable("#dt2", tableData_dt2, cols_dt2);
         if (document.getElementById("dt2").getAttribute("graph") == "on") {
-          createChart(
-            "#chart2",
-            typeChart,
-            dynamicTable2,
-            "Município",
-            "Distância"
-          ); // *** need to change
+          createChart("#chart2", typeChart, dynamicTable2, "Município", "Área"); // *** need to change
         }
-        document
-          .getElementById("showLine")
-          .addEventListener("click", function (e) {
-            typeChart = "line";
-            if (document.getElementById("dt2").getAttribute("graph") == "on")
-              createChart(
-                "#chart2",
-                typeChart,
-                dynamicTable2,
-                digitedField2,
-                refField2
-              ); // *** need to change
-          });
-        document
-          .getElementById("showBar")
-          .addEventListener("click", function (e) {
-            typeChart = "bar";
-            if (document.getElementById("dt2").getAttribute("graph") == "on")
-              createChart(
-                "#chart2",
-                typeChart,
-                dynamicTable2,
-                digitedField2,
-                refField2
-              ); // *** need to change
-          });
+        document.getElementById('showLine').addEventListener('click', function (e) {
+          typeChart = "line";
+          if (document.getElementById("dt2").getAttribute("graph") == "on")
+            createChart("#chart2", typeChart, dynamicTable2, digitedField2, refField2); // *** need to change
+        });
+        document.getElementById('showBar').addEventListener('click', function (e) {
+          typeChart = "bar";
+          if (document.getElementById("dt2").getAttribute("graph") == "on")
+            createChart("#chart2", typeChart, dynamicTable2, digitedField2, refField2); // *** need to change
+        });
 
         // ***** cellEdited must to be reviewed *****
         dynamicCard5.on("cellEdited", function (cell) {
@@ -915,21 +975,18 @@
           let row = cell.getRow();
           let field = col.getField();
           let digitedValue = row.getData()[field];
-          let rowNumber = getLine(
-            row.getData()[refFieldCard5],
-            refFieldCard5,
-            correctValues_card5
-          ); // *** need to change
+          let rowNumber = getLine(row.getData()[refFieldCard5], refFieldCard5,
+          correctValues_card5); // *** need to change
           let correctValue;
           // *** need to change
           switch (field) {
-            case "Unidade":
+            case 'Unidade':
               correctValue = correctValues_card5[rowNumber].Unidade;
               break;
-            case "Dezena":
+            case 'Dezena':
               correctValue = correctValues_card5[rowNumber].Dezena;
               break;
-            case "Centena":
+            case 'Centena':
               correctValue = correctValues_card5[rowNumber].Centena;
               break;
           }
@@ -937,7 +994,7 @@
             cell.getElement().style.backgroundColor = correct_color;
           } else {
             // accept zero if field is empty
-            if (correctValue == "" && digitedValue == "0")
+            if ((correctValue == '') && (digitedValue == '0'))
               cell.getElement().style.backgroundColor = correct_color;
             else {
               cell.getElement().style.backgroundColor = "";
@@ -949,21 +1006,49 @@
           let row = cell.getRow();
           let field = col.getField();
           let digitedValue = row.getData()[field];
-          let rowNumber = getLine(
-            row.getData()[refFieldCard6],
-            refFieldCard6,
-            correctValues_card6
-          ); // *** need to change
+          let rowNumber = getLine(row.getData()[refFieldCard6], refFieldCard6,
+          correctValues_card6); // *** need to change
           let correctValue;
-          if (field == digitedCard6)
-            // *** need to change
-            correctValue = correctValues_card6[rowNumber][digitedCard6]; // *** need to change
+          if (field == digitedCard6) // *** need to change
+            correctValue = correctValues_card6[rowNumber][digitedCard6]; // *** need to change            
           if (correctValue == digitedValue) {
             cell.getElement().style.backgroundColor = "#adf7f6";
           } else {
             // accept zero if field is empty
-            if (correctValue == "" && digitedValue == "0")
+            if ((correctValue == '') && (digitedValue == '0'))
               cell.getElement().style.backgroundColor = "#adf7f6";
+            else {
+              cell.getElement().style.backgroundColor = "";
+            }
+          }
+        });
+        // ***** cellEdited must to be reviewed *****
+        dynamicCard7.on("cellEdited", function (cell) {
+          let col = cell.getColumn();
+          let row = cell.getRow();
+          let field = col.getField();
+          let digitedValue = row.getData()[field];
+          let rowNumber = getLine(row.getData()[refFieldCard7], refFieldCard7,
+          correctValues_card7); // *** need to change
+          let correctValue;
+          // *** need to change
+          switch (field) {
+            case 'Unidade':
+              correctValue = correctValues_card7[rowNumber].Unidade;
+              break;
+            case 'Dezena':
+              correctValue = correctValues_card7[rowNumber].Dezena;
+              break;
+            case 'Centena':
+              correctValue = correctValues_card7[rowNumber].Centena;
+              break;
+          }
+          if (correctValue == digitedValue) {
+            cell.getElement().style.backgroundColor = correct_color;
+          } else {
+            // accept zero if field is empty
+            if ((correctValue == '') && (digitedValue == '0'))
+              cell.getElement().style.backgroundColor = correct_color;
             else {
               cell.getElement().style.backgroundColor = "";
             }
@@ -975,24 +1060,20 @@
           let row = cell.getRow();
           let field = col.getField();
           let digitedValue = row.getData()[field];
-          let rowNumber = getLine(
-            row.getData()[refField1],
-            refField1,
-            correctValues_dt1
-          ); // *** need to change
+          let rowNumber = getLine(row.getData()[refField1], refField1, correctValues_dt1); // *** need to change
           let correctValue;
           // *** need to change
           switch (field) {
-            case "Unidade":
+            case 'Unidade':
               correctValue = correctValues_dt1[rowNumber].Unidade;
               break;
-            case "Dezena":
+            case 'Dezena':
               correctValue = correctValues_dt1[rowNumber].Dezena;
               break;
-            case "Centena":
+            case 'Centena':
               correctValue = correctValues_dt1[rowNumber].Centena;
               break;
-            case "Milhar":
+            case 'Milhar':
               correctValue = correctValues_dt1[rowNumber].Milhar;
               break;
           }
@@ -1000,7 +1081,7 @@
             cell.getElement().style.backgroundColor = correct_color;
           } else {
             // accept zero if field is empty
-            if (correctValue == "" && digitedValue == "0")
+            if ((correctValue == '') && (digitedValue == '0'))
               cell.getElement().style.backgroundColor = correct_color;
             else {
               cell.getElement().style.backgroundColor = "";
@@ -1012,35 +1093,27 @@
           let row = cell.getRow();
           let field = col.getField();
           let digitedValue = row.getData()[field];
-          let rowNumber = getLine(
-            row.getData()[refField2],
-            refField2,
-            correctValues_dt2
-          ); // *** need to change
+          let rowNumber = getLine(row.getData()[refField2], refField2, correctValues_dt2); // *** need to change
           let correctValue;
-          if (field == digitedField2)
-            // *** need to change
-            correctValue = correctValues_dt2[rowNumber][digitedField2]; // *** need to change
+          if (field == digitedField2) // *** need to change
+            correctValue = correctValues_dt2[rowNumber][digitedField2]; // *** need to change            
           if (correctValue == digitedValue) {
             cell.getElement().style.backgroundColor = "#adf7f6";
           } else {
             // accept zero if field is empty
-            if (correctValue == "" && digitedValue == "0")
+            if ((correctValue == '') && (digitedValue == '0'))
               cell.getElement().style.backgroundColor = "#adf7f6";
             else {
               cell.getElement().style.backgroundColor = "";
             }
           }
           if (document.getElementById("dt2").getAttribute("graph") == "on")
-            createChart(
-              "#chart2",
-              typeChart,
-              dynamicTable2,
-              digitedField2,
-              refField2
-            ); // *** need to change
+            createChart("#chart2", typeChart, dynamicTable2, digitedField2, refField2); // *** need to change
         });
+
+
       });
     </script>
-  </body>
+</body>
+
 </html>

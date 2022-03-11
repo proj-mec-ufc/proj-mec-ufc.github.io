@@ -7,7 +7,7 @@
 }
 
 .tabulator-cell{
-    min-width: 110px !important;
+    min-width: 95px !important;
     width: auto;
     white-space: pre-wrap;
 }

@@ -1,5 +1,5 @@
 // Elementos iteretivos
-iterativeSVG('../conteudos/assets/svg/regua.svg', '#regua', () => {
+iterativeSVG('../conteudos/assets/svg/regua.svg', '#regua', (raiz) => {
     let chosen = SVG('#regua').findOne('#chosen');
     chosen.x(chosen.parent().width()/2);
     let group = SVG('g#marks');

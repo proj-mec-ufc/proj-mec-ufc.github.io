@@ -24,3 +24,15 @@ document.addEventListener('DOMContentLoaded', function() {
   $(document).ready(function(){
     $('.tooltipped').tooltip({html:true});
   });
+
+  //Carousel Initialization
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.carousel');
+    var instances = M.Carousel.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.carousel').carousel();
+  });

@@ -215,7 +215,7 @@
               <div class="row">
                 <div class="col s11">
                   <blockquote>
-                    <div class="card very-light-grey">
+                    <div class="card teal white-text">
                       <div class="card-content">
                         <p class="flow-text">
                           Bem, nesse caso, precisaríamos usar mais do que as
@@ -245,7 +245,7 @@
               <div class="row">
                 <div class="col s11">
                   <blockquote>
-                    <div class="card-panel z-depth-2 deep-purple accent-1 white-text">
+                    <div class="card-panel z-depth-2 yellow darken-3 white-text">
                       <div class="card-content">
                         <p>
                           Entre com os algarismos correspondentes aos números
@@ -495,74 +495,41 @@
                 3: Usar Centenas, Dezenas e Unidades
               </div>
             </div>
-            <!-- CARD8 |Heloise| -->
+            <!-- CARD8 -->
             <div id="card8" class="section pages flow-text">
 
-
-              <div class="card very-light-grey">
-                <div class="card-content">
-                  <div class="row">
-                    <div class="col s1">
-                      <p class="icon">✍🏽</p>
-                    </div>
-                    <div class="col s11">
-                      <p><strong>Tarefa 03</strong></p>
-                      <p class="flow-text">
-                        A seguinte tabela mostra, em valores aproximados, a
-                        distância para Belo Horizonte (em quilômetros), as
-                        áreas (em quilômetros quadrados) e as populações (em
-                        número de habitantes) de alguns municípios de Minas
-                        Gerais, de acordo com dados do IBGE:
-                      </p>
-                    </div>
+                <div class="card deep-orange lighten-1 white-text">
+                  <div class="card-content">
+                    <div class="row">
+                      <div class = "col s1">
+                        <p class="icon">✍🏽</p>
+                      </div>
+                    <div class = "col s11">
+                        <p><strong>Tarefa 03</strong></p>
+                        <p class="flow-text"><p>A seguinte tabela mostra, em valores aproximados, a distância para Fortaleza (em quilômetros), as áreas (em quilômetros quadrados) e as populações (em número de habitantes) de alguns municípios do Ceará, de acordo com dados do IBGE:</p>  
+                  </div>
                   </div>
                 </div>
               </div>
 
-              <!-- tabela1card8 -->
-              <table class="striped responsive-table">
-                <thead>
-                  <tr>
-                    <th>Município</th>
-                    <th>Distância a Fortaleza<h5>(em quilômetros)</h5>
-                    </th>
-                    <th>Área <h5>(em quilômetros quadrados)</h5>
-                    </th>
-                    <th>População <h5>(número de habitantes em 2021)</h5>
-                    </th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <tr>
-                    <td>Caucaia</td>
-                    <td>17</td>
-                    <td>1228</td>
-                    <td>361400</td>
-                  </tr>
-                  <tr>
-                    <td>Sobral</td>
-                    <td>240</td>
-                    <td>2068</td>
-                    <td>210711</td>
-                  </tr>
-                  <tr>
-                    <td>Quixeramobim</td>
-                    <td>203</td>
-                    <td>3276</td>
-                    <td>85565</td>
-                  </tr>
-                  <tr>
-                    <td>Maranguape</td>
-                    <td>27</td>
-                    <td>591</td>
-                    <td>126486</td>
-                  </tr>
-                </tbody>
-              </table>
-
-              <p>"Mapa do Ceará.png"</p>
-
+              <!-- Tag do Mapa Inteativo  -->
+              <w-s>
+                                
+                <div id="cidades-table"></div>
+        
+                <svg id="mapa"></svg>
+                
+                <ol>
+                    <li><p>Indique como ficaria a área Quixeramobim escrita por extenso (em quilômetros quadrados):</p>
+                        <p><w-m choices="Três mil e duzentos e setenta e cinco;Trezentos mil e duzentos e sete e cinco;Treze mil e vinte e sete e cinco"></w-m></p>
+                    </li>
+                    <li><p>Indique como ficaria a distância entre Caucaia e Fortaleza, escrita por extenso (em quilômetros):</p>
+                        <p><w-m choices="Dezessete;Cento e sete;Um e sete"></w-m></p>
+                    </li>
+                </ol>
+            </w-s>
+              
+              
             </div>
             <!-- CARD9  -->
             <div id="card9" class="section pages flow-text">
@@ -570,54 +537,39 @@
               <div>
                 Dica para preencher cada forma:<br />
                 1: Usar somente Centenas, Dezenas e Unidades<br />
-                2: Usar somente Milhar, Dezenas e Unidades<br />
-                3: Usar Milhar, Centenas, Dezenas e Unidades
+                2: Usar somente Milhares, Dezenas e Unidades<br />
+                3: Usar Milhares, Centenas, Dezenas e Unidades
               </div>
             </div>
             <!-- CARD10  -->
             <div id="card10" class="section pages flow-text">
-              <div>
                 <div id="dt2" class="dynamic_table" graph="on"></div>
-                <img id="showLine" src="./assets/images/linechart.svg" class="imgButton" />
-                <img id="showBar" src="./assets/images/barchart.svg" class="imgButton" />
-              </div>
-              <!-- CARD9  -->
-              <div id="card9" class="section pages card flow-text">
-                <div id="dt1" class="dynamic_table" graph="off"></div>
-              </div>
-              <!-- CARD10  -->
-              <div id="card10" class="section pages flow-text">
-                <div>
-                  <div id="dt2" class="dynamic_table" graph="on"></div>
                   <img id="showLine" src="./assets/images/linechart.svg" class="imgButton" />
                   <img id="showBar" src="./assets/images/barchart.svg" class="imgButton" />
-                </div>
+                
                 <div class="divChart">
                   <div class="ct-chart ct-golden-section" id="chart2"></div>
                 </div>
-              </div>
-              <!-- CARD11 |Heloise| -->
-              <div id="card11" class="section pages flow-text">
-                <div class="card very-light-grey">
-                  <div class="card-content">
-                    <div class="row">
-                      <div class="col s1">
-                        <span class="icon">📢</span>
-                      </div>
-                      <div class="col s11">
-                        <p class="flow-text">
-                          Agora que aprendemos um pouco mais sobre algarismos e
-                          números naturais, vamos ver algumas
-                          <strong>operações aritméticas</strong> que podem ser
-                          feitas com estes números.
-                        </p>
-                      </div>
+
+            </div>
+            <!-- CARD11 -->
+            <div id="card11" class="section flow-text">
+              <div class="card blue accent-4 white-text">
+                <div class="card-content">
+                  <div class="row">
+                    <div class="col s1">
+                      <span class="icon">📢</span>
+                    </div>
+                    <div class="col s11">
+                      <p class="flow-text"> Agora que aprendemos um pouco mais sobre algarismos e números naturais, vamos ver algumas <strong>operações aritméticas</strong> que podem ser feitas com estes números.</p>
                     </div>
                   </div>
                 </div>
-                <!-- icone1card11 -->
-                <a href="">Operações Aritméticas com Números Naturais</a>
-              </div>
+
+            </div>
+            <!-- icone1card11 -->
+            <span class="icon">🔗</span><a href="https://google.com.br" target="_blank" >Operações Aritméticas com Números Naturais</a> 
+
             </div>
           </div>
         </div>

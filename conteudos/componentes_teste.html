@@ -1,0 +1,204 @@
+<html>
+<head>
+    <script src="./assets/js/jquery-3.6.0.min.js "></script>
+    <script src="./assets/js/dynamic_table.js" type="text/javascript"></script>
+
+    <link href="https://unpkg.com/tabulator-tables/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
+    <link href="./assets/css/dynamic_table.css" rel="stylesheet" type="text/css" />
+
+    <!--<link href="./assets/css/chartist.css" rel="stylesheet" type="text/css" />
+    <script src="./assets/js/chartist.js"></script>
+
+    <script type="text/javascript" src="./assets/js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="./assets/js/d3.geo.projection.v0.min.js"></script>
+    <script type="text/javascript" src="./assets/js/celestial.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/celestial.css">
+    <script src="./assets/js/map.js"></script>-->
+
+
+</head>
+
+<body>
+    <!-- evitar acentuacao e espaco em branco -->
+    <div id="dt0" class="dynamic_table"
+        columnFields="title:'Valor';
+                      title:'Milhar',  editor:'input';
+                      title:'Centena', editor:'input';
+                      title:'Dezena',  editor:'input';
+                      title:'Unidade', editor:'input'"
+        expectedValues="'235', '0', '2', '3', '5';
+                        '1647', '1', '6', '4', '7';
+                        '81', '0', '0', '8', '1'"
+        correctColor = "#adf7f6"
+        graph="off"
+        graphType="line"></div>
+    <br/>
+    <br/>
+</body>
+
+<script>
+    let correct_color = "#adf7f6";
+
+    // ----- dt1
+    let tableData_dt1 = [
+        {ReferenceDt1:"235", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
+        {ReferenceDt1:"1647", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
+        {ReferenceDt1:"81", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
+    ];
+    let cols_dt1 = [
+        {field:"ReferenceDt1"},
+        {field:"TitleVar1Dt1", editor:"input" },
+        {field:"TitleVar2Dt1", editor:"input" },
+        {field:"TitleVar3Dt1", editor:"input" },
+        {field:"TitleVar4Dt1", editor:"input" },
+    ];
+    let correctValues_dt1 = [
+        {ReferenceDt1:"235", Var1Dt1:"0", Var2Dt1: "2", Var3Dt1: "3", Var4Dt1: "5"},
+        {ReferenceDt1:"1647", Var1Dt1:"1", Var2Dt1: "6", Var3Dt1: "4", Var4Dt1: "7"},
+        {ReferenceDt1:"81", Var1Dt1:"0", Var2Dt1: "0", Var3Dt1: "8", Var4Dt1: "1"},
+    ];
+   
+    // ----- dt2
+    let tableData_dt2 = [
+        {Município:"Caucaia", Distância:""},
+        {Município:"Sobral", Distância:""},
+        {Município:"Quixeramobim", Distância:""},
+        {Município:"Maranguape", Distância:""},
+    ];
+    let cols_dt2 = [
+        {field:"Município"},
+        {field:"Distância",  editor:"input" },
+    ];
+    let correctValues_dt2 = [
+        {Município:"Caucaia", Distância:"17"},
+        {Município:"Sobral", Distância:"240"},
+        {Município:"Quixeramobim", Distância:"203"},
+        {Município:"Maranguape", Distância:"27"},
+    ];
+
+    // -------------------------------------------
+
+    $( document ).ready(function() {
+        let typeChart = "line";
+
+        // dt0
+        let id, expectedValues, refField, dynamicTable, correctColor;
+        let tableData = [], colsData = [], fieldsArray=[], colsArray=[], values=[];
+        
+        document.querySelectorAll('.dynamic_table').forEach(
+            (element, index, array) => {
+                correctColor = element.getAttribute("correctColor");
+                id = element.getAttribute("id");
+                fieldsArray = element.getAttribute("columnFields");
+                colsArray = fieldsArray.replace(/title/g,"field").split(";");                
+                expectedValues = element.getAttribute("expectedValues").split(";");
+
+                values = formatData(expectedValues);
+                colsData = formatData(colsArray);
+                
+                tableData = [];
+                let countLines = values.length; // lines quantity
+                //organize and create tableData to generate dynamic table
+                for (let i = 0; i < countLines; i = i + 1 ) {
+                    let tempData = "{";
+                    refValue = values[i].split(",")[0].replace(/'/g,"");
+                    for (let x = 0; x < colsData.length; x = x + 1){
+                        let strTemp = (x==0) ? refValue : "";
+                        let pos1 = colsData[x].indexOf("'")+1;
+                        let pos2 = (x==0)? colsData[x].length-1 : colsData[x].indexOf("'",pos1);
+                        let strField = colsData[x].substring(pos1,pos2);
+
+                        //get the reference value in the 1st column
+                        refField = (x==0)? strField : refField;
+
+                        tempData +=  strField + ":'" + strTemp + "'";
+                        if (x<countLines-1)
+                            tempData += ",";
+                    }
+                    tempData += "}"
+                    tableData.push(tempData);
+                }
+                
+                //console.log(colsData);
+                console.log(tableData);
+                //console.log(refField);
+                //console.log(values);
+                
+                eval("let dynamicTable" + id + " = " + createDynamicTable( id, tableData, colsData ) + ";");
+                eval("dynamicTable" + id + ".on(cellEdited, function(cell){ edited(cell, " + refField + " ," + values + "); }");
+                
+                if (element.getAttribute("graph")=="on") {
+                    //create graphß
+                    //createChart("#chart"+index, element.getAttribute("graphType"), id, digitedField2, refField);
+
+                    //create graph type buttons
+                    //let graphButton = "<img id='showLine#{index}' src='./assets/images/linechart.svg' class='imgButton' />";
+                    //graphButton += "<img id='showBar#{index}' src='./assets/images/barchart.svg' class='imgButton' />";
+                    //element.insertAdjacentHTML('afterend', graphButton);
+
+                    //add event treatment for each type of graph
+                    //document.getElementById('showLine'+index).addEventListener('click', function (e) {
+                    //    createChart("#chart"+index, "line", dynamicTable2, digitedField2, refField);
+                    //});
+                    //document.getElementById('showBar'+index).addEventListener('click', function (e) {
+                    //    createChart("#chart"+index, "bar", dynamicTable2, digitedField2, refField);
+                    //});
+                }
+                
+            }
+        );
+
+        // dt1
+        let refField1 = "ReferenceDt1";
+        let digitedField1 = ""; //["Var4Dt1", "Var3Dt1", "Var2Dt1", "Var1Dt1"];
+        //let dynamicTable1 = createDynamicTable("#dt1", tableData_dt1, cols_dt1);
+
+        // dt2
+        let refField2 = "Município";
+        let digitedField2 = "Distância";
+        //let dynamicTable2 = createDynamicTable("#dt2", tableData_dt2, cols_dt2);
+        //if (document.getElementById("dt2").getAttribute("graph")=="on"){
+            //createChart("#chart2", typeChart, dynamicTable2, "Município", "Distância"); // *** need to change
+        //}
+        
+
+        // ***** cellEdited must to be reviewed *****
+
+        function edited(cell, refField, expectedValues){ 
+            let col = cell.getColumn();
+            let row = cell.getRow();
+            let field = col.getField();
+            let digitedValue = row.getData()[field];
+            let rowNumber = getLine(row.getData()[refField],refField,expectedValues);
+            let correctValue;
+
+            eval("switch (field) {");
+            for (let x = 0; x < countLines; x = x + 1){
+                eval("case 'field" + (x+1) + "':" );
+                eval("correctValue = expectedValues[rowNumber].field" + (x+1) + ";");
+                eval("break;");
+            }
+            eval("}");
+                        
+            //case 'Var4Dt1':
+            //    correctValue = correctValues_dt1[rowNumber].Var4Dt1;
+            //    break;
+                        
+            if (correctValue==digitedValue){
+                cell.getElement().style.backgroundColor = correct_color;
+            }
+            else {
+                // accept zero if field is empty
+                if ((correctValue=='')&&(digitedValue=='0'))
+                    cell.getElement().style.backgroundColor = correct_color;
+                else {
+                    cell.getElement().style.backgroundColor = "";
+                }
+            }
+        };
+
+    });
+</script>
+
+</html>

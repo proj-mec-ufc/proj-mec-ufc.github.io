@@ -1,3 +1,19 @@
+///
+function formatData(dataArray){
+    let values = [];
+    for(let i = 0; i < dataArray.length; i = i + 1 ) {
+        let count = (dataArray[i].match(/,/g) || []).length; //find to count
+        let tempValue = ""
+        for (let x = 0; x <= count; x = x + 1){
+            tempValue += dataArray[i].split(",")[x].trim();
+            if (x<count)
+                tempValue += ",";
+        }
+        values.push(tempValue);
+    }
+    return values;
+}
+
 ///return line number
 function getLine(value,field,correctValues) {
     for(var i=0; i<correctValues.length; i++){
@@ -42,7 +58,18 @@ function addTitleByField(cols){ //, editorParams){
 
 /// create tabulator
 function createDynamicTable(dynamicTable, tableData, cols) {
+    console.log(tableData);
+    console.log(cols);
+
+    tableData = Array.from(tableData);
+    cols = Array.from(cols);
+    
+    if (dynamicTable.indexOf("#") == -1)
+        dynamicTable = "#"+dynamicTable;
+
     cols = addTitleByField(cols);
+
+    console.log(cols);
         
     var table = new Tabulator( dynamicTable , {
         data: tableData,

@@ -1,27 +1,91 @@
 ///
-function formatData(dataArray){
+function formatColsData(dataArray){
     let values = [];
-    for(let i = 0; i < dataArray.length; i = i + 1 ) {
-        let count = (dataArray[i].match(/,/g) || []).length; //find to count
-        let tempValue = ""
-        for (let x = 0; x <= count; x = x + 1){
-            tempValue += dataArray[i].split(",")[x].trim();
-            if (x<count)
-                tempValue += ",";
+    for (let i = 0; i < dataArray.length; i = i + 1 ) {
+        let line = dataArray[i].split(",");
+        let ht = {};
+        let strField1,strField2;
+
+        for (let x = 0; x < line.length; x = x + 1){
+            let pos0 = line[x].indexOf(":");
+            let pos1 = line[x].indexOf("'")+1;
+            let pos2 = (x==0)? line[x].length-1 : line[x].indexOf("'",pos1);
+            strField1 = line[x].substring(0,pos0).trim();
+            strField2 = line[x].substring(pos1,pos2).trim();
+              
+            ht[strField1] = strField2;
         }
-        values.push(tempValue);
+        values.push(ht);
+    }
+    return values;
+}
+///
+function formatValues(dataArray){
+    let values = [];
+    for (let i = 0; i < dataArray.length; i = i + 1 ) {
+        let line = dataArray[i].split(",");
+        let strField = "";
+
+        for (let x = 0; x < line.length; x = x + 1){
+            strField += line[x].trim();
+            if (x<line.length-1)
+                strField += ", "
+        }
+        values.push(strField)
     }
     return values;
 }
 
 ///return line number
+function verifyAnswer(value,field,correctValues) {
+    //for(var i=0; i<correctValues.length; i++){
+        let line = getLine(value,field,correctValues);
+        let correct = correctValues[line].split(",");
+
+        console.log(correctValues);
+        console.log(field);
+        console.log(line);
+        console.log(correct[field].trim().replace(/'/g,""));
+        console.log(value);
+
+        if(correct[field].trim().replace(/'/g,"")==value)
+            return true;
+        else{
+            if ((correct[field].trim().replace(/'/g,"")=='0')&&(value==''))
+                return true;
+        }
+    //}
+    return false;
+};
+
 function getLine(value,field,correctValues) {
     for(var i=0; i<correctValues.length; i++){
-        if(correctValues[i][field]==value)
-            return i
+        let correct = correctValues[i].split(",");
+
+        console.log(value);
+        console.log(field);
+        console.log(correctValues);
+
+        console.log(correct[field].trim().replace(/'/g,""));
+        
+        if(correct[field].trim().replace(/'/g,"")==value){
+            console.log(i,"acertou");
+            return i;
+        }
+        console.log(i,correct);
     }
     return -1;
 };
+
+function getColumnIndex(tableData,field){
+    let i=0;
+    for (const [key, value] of Object.entries(tableData[0])) {
+        if(key==field)
+            return i;
+        i++;
+    }
+    return -1;
+}
 
 ///verify if table is full filled
 function verify(tableData,field) {
@@ -58,19 +122,11 @@ function addTitleByField(cols){ //, editorParams){
 
 /// create tabulator
 function createDynamicTable(dynamicTable, tableData, cols) {
-    console.log(tableData);
-    console.log(cols);
-
-    tableData = Array.from(tableData);
-    cols = Array.from(cols);
-    
     if (dynamicTable.indexOf("#") == -1)
-        dynamicTable = "#"+dynamicTable;
+        dynamicTable = "#" + dynamicTable;
 
     cols = addTitleByField(cols);
 
-    console.log(cols);
-        
     var table = new Tabulator( dynamicTable , {
         data: tableData,
         layout:"fitColumns",
@@ -86,13 +142,13 @@ function createDynamicTable(dynamicTable, tableData, cols) {
 };
 
 /// create chart
-function createChart(chartObj, type="line", table, field, refField){
-    let tableData = table.getData();
+function createChart(chartObj, type="line", tableData) { //, field, refField){
+    tableData = tableData.getData();
     let options = [];
 
     let data = {
-        labels: [ selectField(tableData, refField) ],
-        series: [ selectField(tableData, field) ]
+        labels: [ selectField(tableData) ], //, refField) ],
+        series: [ selectField(tableData) ] //, field) ]
     };
     let responsiveOptions = [
         ['screen and (min-width: 321px) and (max-width: 800px)', {

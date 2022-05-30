@@ -31,7 +31,7 @@
                         '1647', '1', '6', '4', '7';
                         '81', '0', '0', '8', '1'"
         correctColor = "#adf7f6"
-        graph="off"
+        graph="on"
         graphType="line"></div>
     <br/>
     <br/>
@@ -81,11 +81,11 @@
 
     $( document ).ready(function() {
         let typeChart = "line";
-
-        // dt0
-        let id, expectedValues, refField, dynamicTable, correctColor;
+        let id, expectedValues, refCol, dynamicTable, correctColor;
         let tableData = [], colsData = [], fieldsArray=[], colsArray=[], values=[];
-        
+
+        let tab = {};
+
         document.querySelectorAll('.dynamic_table').forEach(
             (element, index, array) => {
                 correctColor = element.getAttribute("correctColor");
@@ -94,109 +94,80 @@
                 colsArray = fieldsArray.replace(/title/g,"field").split(";");                
                 expectedValues = element.getAttribute("expectedValues").split(";");
 
-                values = formatData(expectedValues);
-                colsData = formatData(colsArray);
+                colsData = formatColsData(colsArray);
+                values = formatValues(expectedValues);
                 
                 tableData = [];
-                let countLines = values.length; // lines quantity
-                //organize and create tableData to generate dynamic table
+                let countLines = values.length;
+                let refCol = "";
+                let refValue = "";
                 for (let i = 0; i < countLines; i = i + 1 ) {
-                    let tempData = "{";
-                    refValue = values[i].split(",")[0].replace(/'/g,"");
+                    let ht = {};
+                    refValue = values[i].split(",");
+                    if (i==0) 
+                        refCol = colsData[0]["field"];
                     for (let x = 0; x < colsData.length; x = x + 1){
-                        let strTemp = (x==0) ? refValue : "";
-                        let pos1 = colsData[x].indexOf("'")+1;
-                        let pos2 = (x==0)? colsData[x].length-1 : colsData[x].indexOf("'",pos1);
-                        let strField = colsData[x].substring(pos1,pos2);
-
-                        //get the reference value in the 1st column
-                        refField = (x==0)? strField : refField;
-
-                        tempData +=  strField + ":'" + strTemp + "'";
-                        if (x<countLines-1)
-                            tempData += ",";
+                        var hashKey = Object.keys(colsData[x])["field"];
+                        hashValue = (x==0) ? refValue[x].trim().replace(/'/g,"") : "";                        
+                        ht[colsData[x]["field"]] = hashValue;                        
                     }
-                    tempData += "}"
-                    tableData.push(tempData);
+                    tableData.push(ht);
                 }
                 
                 //console.log(colsData);
                 console.log(tableData);
-                //console.log(refField);
-                //console.log(values);
-                
-                eval("let dynamicTable" + id + " = " + createDynamicTable( id, tableData, colsData ) + ";");
-                eval("dynamicTable" + id + ".on(cellEdited, function(cell){ edited(cell, " + refField + " ," + values + "); }");
-                
-                if (element.getAttribute("graph")=="on") {
-                    //create graphß
-                    //createChart("#chart"+index, element.getAttribute("graphType"), id, digitedField2, refField);
+                console.log(values);
+                //console.log(refCol);
 
-                    //create graph type buttons
-                    //let graphButton = "<img id='showLine#{index}' src='./assets/images/linechart.svg' class='imgButton' />";
-                    //graphButton += "<img id='showBar#{index}' src='./assets/images/barchart.svg' class='imgButton' />";
-                    //element.insertAdjacentHTML('afterend', graphButton);
 
-                    //add event treatment for each type of graph
-                    //document.getElementById('showLine'+index).addEventListener('click', function (e) {
-                    //    createChart("#chart"+index, "line", dynamicTable2, digitedField2, refField);
-                    //});
-                    //document.getElementById('showBar'+index).addEventListener('click', function (e) {
-                    //    createChart("#chart"+index, "bar", dynamicTable2, digitedField2, refField);
-                    //});
-                }
+                tab[id] = createDynamicTable( id, tableData, colsData );
+                tab[id].on("cellEdited", function(cell){ 
+                    console.log("----- on cellEdited ");
+
+                    let col = cell.getColumn();
+                    let row = cell.getRow();
+                    let field = cell.getColumn().getField();
+                    let digitedValue = row.getData()[field];
+
+                    let colIndex = getColumnIndex(tableData,field);
+
+                    // console.log(digitedValue);
+                    // console.log(colIndex);
+                    // console.log(field);
+                    // console.log("----------");
+
+                    let answer = verifyAnswer(digitedValue, colIndex, values);
+
+                    // eval("switch (field) {");
+                    // for (let x = 0; x < countLines; x = x + 1){
+                    //     eval("case 'field" + (x+1) + "':" );
+                    //     eval("correctValue = expectedValues[rowNumber].field" + (x+1) + ";");
+                    //     eval("break;");
+                    // }
+                    // eval("}");
+                                
+                    //case 'Var4Dt1':
+                    //    correctValue = correctValues_dt1[rowNumber].Var4Dt1;
+                    //    break;
+                    
+                    if (answer)
+                        cell.getElement().style.backgroundColor = correct_color;
+                    else
+                        cell.getElement().style.backgroundColor = "";
+                });
+                
+                if (element.getAttribute("graph")=="on")
+                    createChart("#chart"+index, element.getAttribute("graphType"), id ); //,digitedField2, refField);
                 
             }
         );
-
-        // dt1
-        let refField1 = "ReferenceDt1";
-        let digitedField1 = ""; //["Var4Dt1", "Var3Dt1", "Var2Dt1", "Var1Dt1"];
-        //let dynamicTable1 = createDynamicTable("#dt1", tableData_dt1, cols_dt1);
-
+        
         // dt2
         let refField2 = "Município";
         let digitedField2 = "Distância";
-        //let dynamicTable2 = createDynamicTable("#dt2", tableData_dt2, cols_dt2);
         //if (document.getElementById("dt2").getAttribute("graph")=="on"){
             //createChart("#chart2", typeChart, dynamicTable2, "Município", "Distância"); // *** need to change
         //}
-        
-
-        // ***** cellEdited must to be reviewed *****
-
-        function edited(cell, refField, expectedValues){ 
-            let col = cell.getColumn();
-            let row = cell.getRow();
-            let field = col.getField();
-            let digitedValue = row.getData()[field];
-            let rowNumber = getLine(row.getData()[refField],refField,expectedValues);
-            let correctValue;
-
-            eval("switch (field) {");
-            for (let x = 0; x < countLines; x = x + 1){
-                eval("case 'field" + (x+1) + "':" );
-                eval("correctValue = expectedValues[rowNumber].field" + (x+1) + ";");
-                eval("break;");
-            }
-            eval("}");
-                        
-            //case 'Var4Dt1':
-            //    correctValue = correctValues_dt1[rowNumber].Var4Dt1;
-            //    break;
-                        
-            if (correctValue==digitedValue){
-                cell.getElement().style.backgroundColor = correct_color;
-            }
-            else {
-                // accept zero if field is empty
-                if ((correctValue=='')&&(digitedValue=='0'))
-                    cell.getElement().style.backgroundColor = correct_color;
-                else {
-                    cell.getElement().style.backgroundColor = "";
-                }
-            }
-        };
 
     });
 </script>

@@ -36,46 +36,49 @@ function formatValues(dataArray){
     return values;
 }
 
-///return line number
-function verifyAnswer(value,field,correctValues) {
-    //for(var i=0; i<correctValues.length; i++){
-        let line = getLine(value,field,correctValues);
-        let correct = correctValues[line].split(",");
+///
+function getValue(values,row,col) {
+    let line = values[row].split(",");
+    return line[col].trim().replace(/'/g,"");
+};
 
-        console.log(correctValues);
-        console.log(field);
-        console.log(line);
-        console.log(correct[field].trim().replace(/'/g,""));
-        console.log(value);
-
-        if(correct[field].trim().replace(/'/g,"")==value)
+///
+function verifyAnswer(values,row,col,digited) {
+    //let line = values[row].split(",");
+    let value = getValue(values,row,col);
+    if(value==digited)
+        return true;
+    else{
+        if ((value=='0')&&(digited==''))
             return true;
-        else{
-            if ((correct[field].trim().replace(/'/g,"")=='0')&&(value==''))
-                return true;
-        }
-    //}
+    }
+    // if(line[col].trim().replace(/'/g,"")==digited)
+    //     return true;
+    // else{
+    //     if ((line[col].trim().replace(/'/g,"")=='0')&&(digited==''))
+    //         return true;
+    // }
     return false;
 };
 
-function getLine(value,field,correctValues) {
-    for(var i=0; i<correctValues.length; i++){
-        let correct = correctValues[i].split(",");
+// function getLine(value,field,correctValues) {
+//     for(var i=0; i<correctValues.length; i++){
+//         let correct = correctValues[i].split(",");
 
-        console.log(value);
-        console.log(field);
-        console.log(correctValues);
+//         console.log(value);
+//         console.log(field);
+//         console.log(correctValues);
 
-        console.log(correct[field].trim().replace(/'/g,""));
+//         console.log(correct[field].trim().replace(/'/g,""));
         
-        if(correct[field].trim().replace(/'/g,"")==value){
-            console.log(i,"acertou");
-            return i;
-        }
-        console.log(i,correct);
-    }
-    return -1;
-};
+//         if(correct[field].trim().replace(/'/g,"")==value){
+//             console.log(i,"acertou");
+//             return i;
+//         }
+//         console.log(i,correct);
+//     }
+//     return -1;
+// };
 
 function getColumnIndex(tableData,field){
     let i=0;

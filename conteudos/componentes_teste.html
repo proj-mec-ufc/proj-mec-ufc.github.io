@@ -31,7 +31,7 @@
                         '1647', '1', '6', '4', '7';
                         '81', '0', '0', '8', '1'"
         correctColor = "#adf7f6"
-        graph="on"
+        graph="off"
         graphType="line"></div>
     <br/>
     <br/>
@@ -41,43 +41,42 @@
     let correct_color = "#adf7f6";
 
     // ----- dt1
-    let tableData_dt1 = [
-        {ReferenceDt1:"235", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
-        {ReferenceDt1:"1647", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
-        {ReferenceDt1:"81", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
-    ];
-    let cols_dt1 = [
-        {field:"ReferenceDt1"},
-        {field:"TitleVar1Dt1", editor:"input" },
-        {field:"TitleVar2Dt1", editor:"input" },
-        {field:"TitleVar3Dt1", editor:"input" },
-        {field:"TitleVar4Dt1", editor:"input" },
-    ];
-    let correctValues_dt1 = [
-        {ReferenceDt1:"235", Var1Dt1:"0", Var2Dt1: "2", Var3Dt1: "3", Var4Dt1: "5"},
-        {ReferenceDt1:"1647", Var1Dt1:"1", Var2Dt1: "6", Var3Dt1: "4", Var4Dt1: "7"},
-        {ReferenceDt1:"81", Var1Dt1:"0", Var2Dt1: "0", Var3Dt1: "8", Var4Dt1: "1"},
-    ];
+    // let tableData_dt1 = [
+    //     {ReferenceDt1:"235", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
+    //     {ReferenceDt1:"1647", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
+    //     {ReferenceDt1:"81", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
+    // ];
+    // let cols_dt1 = [
+    //     {field:"ReferenceDt1"},
+    //     {field:"TitleVar1Dt1", editor:"input" },
+    //     {field:"TitleVar2Dt1", editor:"input" },
+    //     {field:"TitleVar3Dt1", editor:"input" },
+    //     {field:"TitleVar4Dt1", editor:"input" },
+    // ];
+    // let correctValues_dt1 = [
+    //     {ReferenceDt1:"235", Var1Dt1:"0", Var2Dt1: "2", Var3Dt1: "3", Var4Dt1: "5"},
+    //     {ReferenceDt1:"1647", Var1Dt1:"1", Var2Dt1: "6", Var3Dt1: "4", Var4Dt1: "7"},
+    //     {ReferenceDt1:"81", Var1Dt1:"0", Var2Dt1: "0", Var3Dt1: "8", Var4Dt1: "1"},
+    // ];
    
     // ----- dt2
-    let tableData_dt2 = [
-        {Município:"Caucaia", Distância:""},
-        {Município:"Sobral", Distância:""},
-        {Município:"Quixeramobim", Distância:""},
-        {Município:"Maranguape", Distância:""},
-    ];
-    let cols_dt2 = [
-        {field:"Município"},
-        {field:"Distância",  editor:"input" },
-    ];
-    let correctValues_dt2 = [
-        {Município:"Caucaia", Distância:"17"},
-        {Município:"Sobral", Distância:"240"},
-        {Município:"Quixeramobim", Distância:"203"},
-        {Município:"Maranguape", Distância:"27"},
-    ];
+    // let tableData_dt2 = [
+    //     {Município:"Caucaia", Distância:""},
+    //     {Município:"Sobral", Distância:""},
+    //     {Município:"Quixeramobim", Distância:""},
+    //     {Município:"Maranguape", Distância:""},
+    // ];
+    // let cols_dt2 = [
+    //     {field:"Município"},
+    //     {field:"Distância",  editor:"input" },
+    // ];
+    // let correctValues_dt2 = [
+    //     {Município:"Caucaia", Distância:"17"},
+    //     {Município:"Sobral", Distância:"240"},
+    //     {Município:"Quixeramobim", Distância:"203"},
+    //     {Município:"Maranguape", Distância:"27"},
+    // ];
 
-    // -------------------------------------------
 
     $( document ).ready(function() {
         let typeChart = "line";
@@ -130,26 +129,15 @@
                     let digitedValue = row.getData()[field];
 
                     let colIndex = getColumnIndex(tableData,field);
+                    let rowIndex = cell.getRow().getPosition();
 
                     // console.log(digitedValue);
                     // console.log(colIndex);
                     // console.log(field);
                     // console.log("----------");
 
-                    let answer = verifyAnswer(digitedValue, colIndex, values);
+                    let answer = verifyAnswer(values, rowIndex, colIndex, digitedValue);
 
-                    // eval("switch (field) {");
-                    // for (let x = 0; x < countLines; x = x + 1){
-                    //     eval("case 'field" + (x+1) + "':" );
-                    //     eval("correctValue = expectedValues[rowNumber].field" + (x+1) + ";");
-                    //     eval("break;");
-                    // }
-                    // eval("}");
-                                
-                    //case 'Var4Dt1':
-                    //    correctValue = correctValues_dt1[rowNumber].Var4Dt1;
-                    //    break;
-                    
                     if (answer)
                         cell.getElement().style.backgroundColor = correct_color;
                     else

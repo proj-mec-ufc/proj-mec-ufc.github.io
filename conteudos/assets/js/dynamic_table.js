@@ -227,11 +227,7 @@ $( document ).ready(function() {
         }
     );
 
-    // dt2
-    //let refField2 = "Município";
-    //let digitedField2 = "Distância";
-    //if (document.getElementById("dt2").getAttribute("graph")=="on"){
-        //createChart("#chart2", typeChart, dynamicTable2, "Município", "Distância"); // *** need to change
-    //}
+    if (document.getElementsByName('celestial-map').length>0)
+        drawMap();
 
 });

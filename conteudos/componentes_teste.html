@@ -7,157 +7,53 @@
     <script type="text/javascript" src="https://unpkg.com/tabulator-tables/dist/js/tabulator.min.js"></script>
     <link href="./assets/css/dynamic_table.css" rel="stylesheet" type="text/css" />
 
-    <!--<link href="./assets/css/chartist.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/chartist.css" rel="stylesheet" type="text/css" />
     <script src="./assets/js/chartist.js"></script>
 
-    <script type="text/javascript" src="./assets/js/d3.v3.min.js"></script>
+    <!--<script type="text/javascript" src="./assets/js/d3.v3.min.js"></script>
     <script type="text/javascript" src="./assets/js/d3.geo.projection.v0.min.js"></script>
     <script type="text/javascript" src="./assets/js/celestial.min.js"></script>
     <link rel="stylesheet" href="./assets/css/celestial.css">
     <script src="./assets/js/map.js"></script>-->
 
-
 </head>
 
 <body>
-    <!-- evitar acentuacao e espaco em branco -->
-    <div id="dt0" class="dynamic_table"
-        columnFields="title:'Valor';
-                      title:'Milhar',  editor:'input';
-                      title:'Centena', editor:'input';
-                      title:'Dezena',  editor:'input';
-                      title:'Unidade', editor:'input'"
-        expectedValues="'235', '0', '2', '3', '5';
-                        '1647', '1', '6', '4', '7';
-                        '81', '0', '0', '8', '1'"
-        correctColor = "#adf7f6"
-        graph="off"
-        graphType="line"></div>
     <br/>
-    <br/>
+    <div>
+        <div id="dt1" class="dynamic_table"
+            columnFields="title:'Municipio';
+                          title:'Distancia',  editor:'input'"
+            expectedValues="'Caucaia', '17';
+                            'Sobral', '240';
+                            'Quixeramobim', '203';
+                            'Maranguape', '27'"
+            correctColor = "#adf7f6"
+            graph="on" graphType="line" graphField="Distancia" graphId="chart_dt1">
+        </div>
+        <div class="divChart">
+            <div class="ct-chart ct-golden-section" id="chart_dt1"></div>
+        </div>
+    </div>
+    <div>
+        <!-- evitar acentuacao e espaco em branco, colocar valores entre aspas simples -->
+        <div id="dt2" class="dynamic_table"
+            columnFields="title:'Valor';
+                        title:'Milhar',  editor:'input';
+                        title:'Centena', editor:'input';
+                        title:'Dezena',  editor:'input';
+                        title:'Unidade', editor:'input'"
+            expectedValues="'235', '0', '2', '3', '5';
+                            '1647', '1', '6', '4', '7';
+                            '81', '0', '0', '8', '1'"
+            correctColor = "#adf7f6"
+            graph="on" graphType="bar" graphField="Unidade" graphId="chart_dt2">
+        </div>
+        <div class="divChart">
+            <div class="ct-chart ct-golden-section" id="chart_dt2"></div>
+        </div>
+    </div>
+
 </body>
-
-<script>
-    let correct_color = "#adf7f6";
-
-    // ----- dt1
-    // let tableData_dt1 = [
-    //     {ReferenceDt1:"235", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
-    //     {ReferenceDt1:"1647", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
-    //     {ReferenceDt1:"81", Var1Dt1:"", Var2Dt1: "", Var3Dt1: "", Var4Dt1: ""},
-    // ];
-    // let cols_dt1 = [
-    //     {field:"ReferenceDt1"},
-    //     {field:"TitleVar1Dt1", editor:"input" },
-    //     {field:"TitleVar2Dt1", editor:"input" },
-    //     {field:"TitleVar3Dt1", editor:"input" },
-    //     {field:"TitleVar4Dt1", editor:"input" },
-    // ];
-    // let correctValues_dt1 = [
-    //     {ReferenceDt1:"235", Var1Dt1:"0", Var2Dt1: "2", Var3Dt1: "3", Var4Dt1: "5"},
-    //     {ReferenceDt1:"1647", Var1Dt1:"1", Var2Dt1: "6", Var3Dt1: "4", Var4Dt1: "7"},
-    //     {ReferenceDt1:"81", Var1Dt1:"0", Var2Dt1: "0", Var3Dt1: "8", Var4Dt1: "1"},
-    // ];
-   
-    // ----- dt2
-    // let tableData_dt2 = [
-    //     {Município:"Caucaia", Distância:""},
-    //     {Município:"Sobral", Distância:""},
-    //     {Município:"Quixeramobim", Distância:""},
-    //     {Município:"Maranguape", Distância:""},
-    // ];
-    // let cols_dt2 = [
-    //     {field:"Município"},
-    //     {field:"Distância",  editor:"input" },
-    // ];
-    // let correctValues_dt2 = [
-    //     {Município:"Caucaia", Distância:"17"},
-    //     {Município:"Sobral", Distância:"240"},
-    //     {Município:"Quixeramobim", Distância:"203"},
-    //     {Município:"Maranguape", Distância:"27"},
-    // ];
-
-
-    $( document ).ready(function() {
-        let typeChart = "line";
-        let id, expectedValues, refCol, dynamicTable, correctColor;
-        let tableData = [], colsData = [], fieldsArray=[], colsArray=[], values=[];
-
-        let tab = {};
-
-        document.querySelectorAll('.dynamic_table').forEach(
-            (element, index, array) => {
-                correctColor = element.getAttribute("correctColor");
-                id = element.getAttribute("id");
-                fieldsArray = element.getAttribute("columnFields");
-                colsArray = fieldsArray.replace(/title/g,"field").split(";");                
-                expectedValues = element.getAttribute("expectedValues").split(";");
-
-                colsData = formatColsData(colsArray);
-                values = formatValues(expectedValues);
-                
-                tableData = [];
-                let countLines = values.length;
-                let refCol = "";
-                let refValue = "";
-                for (let i = 0; i < countLines; i = i + 1 ) {
-                    let ht = {};
-                    refValue = values[i].split(",");
-                    if (i==0) 
-                        refCol = colsData[0]["field"];
-                    for (let x = 0; x < colsData.length; x = x + 1){
-                        var hashKey = Object.keys(colsData[x])["field"];
-                        hashValue = (x==0) ? refValue[x].trim().replace(/'/g,"") : "";                        
-                        ht[colsData[x]["field"]] = hashValue;                        
-                    }
-                    tableData.push(ht);
-                }
-                
-                //console.log(colsData);
-                console.log(tableData);
-                console.log(values);
-                //console.log(refCol);
-
-
-                tab[id] = createDynamicTable( id, tableData, colsData );
-                tab[id].on("cellEdited", function(cell){ 
-                    console.log("----- on cellEdited ");
-
-                    let col = cell.getColumn();
-                    let row = cell.getRow();
-                    let field = cell.getColumn().getField();
-                    let digitedValue = row.getData()[field];
-
-                    let colIndex = getColumnIndex(tableData,field);
-                    let rowIndex = cell.getRow().getPosition();
-
-                    // console.log(digitedValue);
-                    // console.log(colIndex);
-                    // console.log(field);
-                    // console.log("----------");
-
-                    let answer = verifyAnswer(values, rowIndex, colIndex, digitedValue);
-
-                    if (answer)
-                        cell.getElement().style.backgroundColor = correct_color;
-                    else
-                        cell.getElement().style.backgroundColor = "";
-                });
-                
-                if (element.getAttribute("graph")=="on")
-                    createChart("#chart"+index, element.getAttribute("graphType"), id ); //,digitedField2, refField);
-                
-            }
-        );
-        
-        // dt2
-        let refField2 = "Município";
-        let digitedField2 = "Distância";
-        //if (document.getElementById("dt2").getAttribute("graph")=="on"){
-            //createChart("#chart2", typeChart, dynamicTable2, "Município", "Distância"); // *** need to change
-        //}
-
-    });
-</script>
 
 </html>

@@ -44,7 +44,6 @@ function getValue(values,row,col) {
 
 ///
 function verifyAnswer(values,row,col,digited) {
-    //let line = values[row].split(",");
     let value = getValue(values,row,col);
     if(value==digited)
         return true;
@@ -52,33 +51,8 @@ function verifyAnswer(values,row,col,digited) {
         if ((value=='0')&&(digited==''))
             return true;
     }
-    // if(line[col].trim().replace(/'/g,"")==digited)
-    //     return true;
-    // else{
-    //     if ((line[col].trim().replace(/'/g,"")=='0')&&(digited==''))
-    //         return true;
-    // }
     return false;
 };
-
-// function getLine(value,field,correctValues) {
-//     for(var i=0; i<correctValues.length; i++){
-//         let correct = correctValues[i].split(",");
-
-//         console.log(value);
-//         console.log(field);
-//         console.log(correctValues);
-
-//         console.log(correct[field].trim().replace(/'/g,""));
-        
-//         if(correct[field].trim().replace(/'/g,"")==value){
-//             console.log(i,"acertou");
-//             return i;
-//         }
-//         console.log(i,correct);
-//     }
-//     return -1;
-// };
 
 function getColumnIndex(tableData,field){
     let i=0;
@@ -91,20 +65,20 @@ function getColumnIndex(tableData,field){
 }
 
 ///verify if table is full filled
-function verify(tableData,field) {
-    let count = 0;
-    for(var i=0; i<tableData.length; i++){
-        //if content is number
-        let value = tableData[i][field];
-        if (!(value===""))
-            if (!isNaN(parseInt(value, 10))) 
-                count++;
-    }
-    if (count == tableData.length)
-        return true;
-    else
-        return false;
-};
+// function verify(tableData,field) {
+//     let count = 0;
+//     for(var i=0; i<tableData.length; i++){
+//         //if content is number
+//         let value = tableData[i][field];
+//         if (!(value===""))
+//             if (!isNaN(parseInt(value, 10))) 
+//                 count++;
+//     }
+//     if (count == tableData.length)
+//         return true;
+//     else
+//         return false;
+// };
 
 ///return selected field
 function selectField(tableData,field) {
@@ -145,13 +119,12 @@ function createDynamicTable(dynamicTable, tableData, cols) {
 };
 
 /// create chart
-function createChart(chartObj, type="line", tableData) { //, field, refField){
+function createChart(chartObj, type="line", tableData, field) {
     tableData = tableData.getData();
     let options = [];
-
     let data = {
-        labels: [ selectField(tableData) ], //, refField) ],
-        series: [ selectField(tableData) ] //, field) ]
+        labels: [ selectField(tableData, field) ],
+        series: [ selectField(tableData, field) ]
     };
     let responsiveOptions = [
         ['screen and (min-width: 321px) and (max-width: 800px)', {
@@ -171,6 +144,7 @@ function createChart(chartObj, type="line", tableData) { //, field, refField){
             }
         }]
     ];
+
     if (type=='line'){
         options = {
             showPoint: true,
@@ -183,7 +157,81 @@ function createChart(chartObj, type="line", tableData) { //, field, refField){
         new Chartist.Line(chartObj, data, options, responsiveOptions);
     }
     else {
-        new Chartist.Bar(chartObj, data, null, responsiveOptions);
+        options = {
+            axisX: {
+                labelInterpolationFnc: function(value, index) {
+                    return index % 2 === 0 ? value : null;
+                }
+            }
+        };
+        new Chartist.Bar(chartObj, data, options, responsiveOptions);
     }
 
 }
+
+$( document ).ready(function() {
+    let tableData = {}, values={}, tab = {};
+
+    document.querySelectorAll('.dynamic_table').forEach(
+        (element, index, array) => {
+            let id = element.getAttribute("id");
+            fieldsArray = element.getAttribute("columnFields");
+            colsArray = fieldsArray.replace(/title/g,"field").split(";");
+            let expectedValues = element.getAttribute("expectedValues").split(";");
+
+            let colsData = formatColsData(colsArray);
+            values[id] = formatValues(expectedValues);
+
+            tableData[id] = [];
+            let countLines = values[id].length;
+            let refCol = "";
+            let refValue = "";
+            for (let i = 0; i < countLines; i = i + 1 ) {
+                let ht = {};
+                refValue = values[id][i].split(",");
+                if (i==0)
+                    refCol = colsData[0]["field"];
+                for (let x = 0; x < colsData.length; x = x + 1){
+                    var hashKey = Object.keys(colsData[x])["field"];
+                    hashValue = (x==0) ? refValue[x].trim().replace(/'/g,"") : "";
+                    ht[colsData[x]["field"]] = hashValue;
+                }
+                tableData[id].push(ht);
+            }
+
+            tab[id] = createDynamicTable( id, tableData[id], colsData );
+            tab[id].on("cellEdited", function(cell){
+                let row = cell.getRow();
+                let field = cell.getColumn().getField();
+                let digitedValue = row.getData()[field];
+
+                let colIndex = getColumnIndex(tableData[id],field);
+                let rowIndex = cell.getRow().getPosition();
+
+                let answer = verifyAnswer(values[id], rowIndex, colIndex, digitedValue);
+
+                let correct_color = element.getAttribute("correctColor");
+                if (answer)
+                    cell.getElement().style.backgroundColor = correct_color;
+                else
+                    cell.getElement().style.backgroundColor = "";
+
+                if (element.getAttribute("graph")=="on")
+                    createChart("#"+element.getAttribute("graphId"), element.getAttribute("graphType"), 
+                                tab[id], element.getAttribute("graphField") );
+            });
+
+            // if (element.getAttribute("graph")=="on")
+            //     createChart("#"+element.getAttribute("graphId"), element.getAttribute("graphType"), tab[id],
+            //                 element.getAttribute("graphField"), element.getAttribute("graphLabel") );
+        }
+    );
+
+    // dt2
+    //let refField2 = "Município";
+    //let digitedField2 = "Distância";
+    //if (document.getElementById("dt2").getAttribute("graph")=="on"){
+        //createChart("#chart2", typeChart, dynamicTable2, "Município", "Distância"); // *** need to change
+    //}
+
+});

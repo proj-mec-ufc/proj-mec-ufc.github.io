@@ -1,0 +1,19 @@
+/* Graph colors */
+
+/* line color and width */
+.ct-series-a .ct-line {
+  stroke: rgb(148, 162, 224) !important;
+  stroke-width: 3px !important;
+}
+
+/* point color and width */
+.ct-point {
+    stroke: blue !important;
+    stroke-width: 4px !important;
+  }
+
+/* bar color and width */
+.ct-series-a .ct-bar {
+  stroke: green !important;
+  stroke-width: 10x !important;
+}

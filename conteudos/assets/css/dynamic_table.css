@@ -1,10 +1,25 @@
+/* Table configuration */
 
 .dynamic_table.tabulator {
     width:fit-content;
-    border: 1px solid #999;
+    border: 1px solid #999; /* border configuration */
     margin: 10px 0 10px 0;
     display: inline-block;
 }
+
+.tabulator-row {
+    background-color: #ffffff !important; /* primary line color */
+}
+
+.tabulator-row.tabulator-row-even {
+    background-color: #f4f3c3 !important; /* even line color */
+}
+
+.tabulator .tabulator-header .tabulator-col,
+    .tabulator .tabulator-header .tabulator-col.tabulator-sortable:hover {
+        color: rgb(0, 0, 0);                                /* header font color */
+        background-color: rgb(242, 229, 118) !important;    /* header color */
+    }
 
 .tabulator-cell{
     min-width: 95px !important;

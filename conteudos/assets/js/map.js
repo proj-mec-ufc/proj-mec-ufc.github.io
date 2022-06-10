@@ -92,4 +92,13 @@ function drawMap(){
     });
     
     Celestial.display(config);
-} 
+}
+
+$( document ).ready(function() {
+    if (document.getElementsByClassName('celestial-map').length>0)
+        drawMap();
+});
+
+//ref:
+// https://www.npmjs.com/package/d3-celestial?activeTab=readme
+// https://armchairastronautics.blogspot.com/2018/03/how-to-put-your-own-data-on-celestial.html

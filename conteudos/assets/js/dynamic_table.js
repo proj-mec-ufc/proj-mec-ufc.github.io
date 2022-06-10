@@ -64,22 +64,6 @@ function getColumnIndex(tableData,field){
     return -1;
 }
 
-///verify if table is full filled
-// function verify(tableData,field) {
-//     let count = 0;
-//     for(var i=0; i<tableData.length; i++){
-//         //if content is number
-//         let value = tableData[i][field];
-//         if (!(value===""))
-//             if (!isNaN(parseInt(value, 10))) 
-//                 count++;
-//     }
-//     if (count == tableData.length)
-//         return true;
-//     else
-//         return false;
-// };
-
 ///return selected field
 function selectField(tableData,field) {
     let newData = [];
@@ -221,13 +205,10 @@ $( document ).ready(function() {
                                 tab[id], element.getAttribute("graphField") );
             });
 
-            // if (element.getAttribute("graph")=="on")
-            //     createChart("#"+element.getAttribute("graphId"), element.getAttribute("graphType"), tab[id],
-            //                 element.getAttribute("graphField"), element.getAttribute("graphLabel") );
+            if (element.getAttribute("graph")=="on")
+                createChart("#"+element.getAttribute("graphId"), element.getAttribute("graphType"), 
+                            tab[id], element.getAttribute("graphField") );
         }
     );
-
-    if (document.getElementsByName('celestial-map').length>0)
-        drawMap();
 
 });

@@ -1,4 +1,246 @@
-function drawMap(){
+function getJson(option){
+    //from: https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/asterisms.json
+    //available: GreatDiamond, SummerTriangle, Cas-Cyg, Boo-Sgr, Cas-Aur
+    switch (option){
+        case "SummerTriangle":
+            return {
+                "type":"FeatureCollection",
+                "features":[
+                    {
+                        "type": "Feature",
+                        "id": "SummerTriangle",
+                        "properties": {
+                          "n": "Summer Triangle",
+                          "es": "Triángulo Estival",
+                          "loc": [
+                            -67.5,
+                            38
+                          ],
+                          "p": 1
+                        },
+                        "geometry": {
+                          "type": "MultiLineString",
+                          "coordinates": [
+                            [
+                              [
+                                -80.7653,
+                                38.7837
+                              ],
+                              [
+                                -62.3042,
+                                8.8683
+                              ],
+                              [
+                                -49.642,
+                                45.2803
+                              ],
+                              [
+                                -80.7653,
+                                38.7837
+                              ]
+                            ]
+                          ]
+                        }
+                      }
+                ]
+            };
+            break;
+        case "Cas-Cyg":
+            return {
+                "type":"FeatureCollection",
+                "features":[
+                    {
+                        "type": "Feature",
+                        "id": "Cas-Cyg",
+                        "properties": {
+                          "n": "Cas-Cyg",
+                          "es": "",
+                          "loc": [
+                            0,
+                            0
+                          ],
+                          "p": 6
+                        },
+                        "geometry": {
+                          "type": "MultiLineString",
+                          "coordinates": [
+                            [
+                              [
+                                21.454,
+                                60.2353
+                              ],
+                              [
+                                14.1772,
+                                60.7167
+                              ],
+                              [
+                                -0.015,
+                                61
+                              ],
+                              [
+                                0.015,
+                                61
+                              ],
+                              [
+                                -49.642,
+                                45.2803
+                              ],
+                              [
+                                -62.3042,
+                                8.8683
+                              ]
+                            ]
+                          ]
+                        }
+                      },
+                ]
+              };
+            break;
+        case "GreatDiamond":
+            return {
+                "type":"FeatureCollection",
+                // this is an array, add as many objects as you want
+                "features":[
+
+                    {
+                        "type": "Feature",
+                        "id": "GreatDiamond",
+                        "properties": {
+                          "n": "Great Diamond",
+                          "es": "Diamante de Virgo",
+                          "loc": [
+                            -163.5,
+                            16
+                          ],
+                          "p": 1
+                        },
+                        "geometry": {
+                          "type": "MultiLineString",
+                          "coordinates": [
+                            [
+                              [
+                                -146.0847,
+                                19.1824
+                              ],
+                              [
+                                -158.7018,
+                                -11.1613
+                              ],
+                              [
+                                177.2649,
+                                14.5721
+                              ],
+                              [
+                                -165.9931,
+                                38.3184
+                              ],
+                              [
+                                -146.0847,
+                                19.1824
+                              ]
+                            ]
+                          ]
+                        }
+                      }
+
+                ]
+            };
+            break;
+        case "Boo-Sgr":
+            return {
+                "type":"FeatureCollection",
+                "features":[
+                    {
+                        "type": "Feature",
+                        "id": "Boo-Sgr",
+                        "properties": {
+                          "n": "Boo-Sgr",
+                          "es": "",
+                          "loc": [
+                            0,
+                            0
+                          ],
+                          "p": 6
+                        },
+                        "geometry": {
+                          "type": "MultiLineString",
+                          "coordinates": [
+                            [
+                              [
+                                -165.9931,
+                                38.3184
+                              ],
+                              [
+                                -146.0847,
+                                19.1824
+                              ],
+                              [
+                                -112.6481,
+                                -26.432
+                              ],
+                              [
+                                -90.015,
+                                -34.3
+                              ]
+                            ]
+                          ]
+                        }
+                    }
+
+                ]
+                };
+            break;
+        case "Cas-Aur":
+            return {
+                "type":"FeatureCollection",
+                "features":[
+                    {
+                    "type": "Feature",
+                    "id": "Cas-Aur",
+                    "properties": {
+                        "n": "Cas-Aur",
+                        "es": "",
+                        "loc": [
+                        0,
+                        0
+                        ],
+                        "p": 6
+                    },
+                    "geometry": {
+                        "type": "MultiLineString",
+                        "coordinates": [
+                        [
+                            [
+                            14.1772,
+                            60.7167
+                            ],
+                            [
+                            21.454,
+                            60.2353
+                            ],
+                            [
+                            79.1723,
+                            45.998
+                            ]
+                        ]
+                        ]
+                    }
+                    }
+                ]
+                };
+            break;
+        /*case "":
+            return {
+                "type":"FeatureCollection",
+                "features":[
+
+                ]
+                };
+            break;*/
+    }
+}
+
+function drawMap(asterism="GreatDiamond"){
     var config = {
         projection: "airy",
         center: [-65, 0],
@@ -27,31 +269,8 @@ function drawMap(){
         align: "center", 
         baseline: "bottom" 
     };
-    var jsonLine = {
-        "type":"FeatureCollection",
-        // this is an array, add as many objects as you want
-        "features":[
-            {"type":"Feature",
-            "id":"SummerTriangle",
-            "properties": {
-                // Name
-                "n":"Summer Triangle",
-                // Location of name text on the map
-                "loc": [-67.5, 52]
-            }, "geometry":{
-                // the line object as an array of point coordinates, 
-                // always as [ra -180..180 degrees, dec -90..90 degrees]
-                "type":"MultiLineString",
-                "coordinates":[[ -3.731862, -38.526669
-                /*[-80.7653, 38.7837],
-                [-62.3042, 8.8683],
-                [-49.642, 45.2803],
-                [-80.7653, 38.7837]*/
-                ]]
-            }
-            }  
-        ]
-    };
+
+    var jsonLine = getJson(asterism);
 
     Celestial.add({type:"line", 
         callback: function(error, json) {
@@ -95,10 +314,14 @@ function drawMap(){
 }
 
 $( document ).ready(function() {
-    if (document.getElementsByClassName('celestial-map').length>0)
-        drawMap();
+    if (document.getElementsByClassName('celestial-map').length>0){
+        let asterism = document.getElementById('celestial-map').getAttribute("asterism");
+        drawMap(asterism);
+    }
 });
 
-//ref:
+// ver: https://github.com/ofrohn/d3-celestial/tree/master/data
+
+// outras:
 // https://www.npmjs.com/package/d3-celestial?activeTab=readme
 // https://armchairastronautics.blogspot.com/2018/03/how-to-put-your-own-data-on-celestial.html
